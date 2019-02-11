@@ -1,0 +1,21 @@
+* {
+    font-family: sans-serif;
+}
+
+section {
+    background-color: rgba(255, 255, 0, 0.445);
+    padding: 5px;
+}
+
+h2 {
+    height: 25px;
+    background-color: #ffffff;
+    margin: 0;
+}
+
+article {
+    background-color: rgba(0, 0, 255, 0.507);
+    padding: 10px;
+    border-bottom: 5px solid black;
+    width: 100%;
+}
