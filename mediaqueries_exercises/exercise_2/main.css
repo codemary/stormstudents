@@ -1,0 +1,121 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-image: url(./Assets/beautiful-landscape-street.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-weight: bold;
+    text-align: center;
+}
+
+ol {
+    width: 50vw;
+    margin: 3vh auto;
+}
+
+li {
+    padding: 7vh 0;
+}
+
+@media only screen and (max-width: 320px) {
+    h1 {
+        font-size: 350%;
+        height: 80vh;
+        padding-top: 20vh;       
+    }
+
+    p {
+        padding: 10vw;
+        font-size: 200%;
+        color: #9761E8;
+    }
+
+    
+
+
+}
+
+@media only screen and (max-width: 768px) and (min-width: 321px) {
+    h1 {
+        font-size: 400%;
+        height: 70vh;
+        padding: 30vh 10vw 0 10vw;
+        background-size: cover;
+
+    }
+
+    p {
+        padding: 10vw;
+        font-size: 200%;
+        color: #9761E8;
+    }
+
+    li {
+        font-size: 150%;
+    }
+    
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    h1 {
+        font-size: 400%;
+        background-size: cover;
+        height: 27vh;
+        padding: 15vh 10vw 0 10vw;
+    }
+
+    p {
+        padding: 5vh 10vw 2vh 10vw;
+        font-size: 200%;
+        color: violet;
+    }
+
+    li {
+        padding: 2.5vh 0;
+    }
+
+    li::first-letter {
+        color: #9761E8;
+        font-size: 200%;
+    }
+    
+}
+
+
+@media only screen and (min-width: 1025px) {
+    h1 {
+        font-size: 400%;
+        background-size: cover;
+        height: 27vh;
+        padding: 15vh 10vw 0 10vw;
+    }
+
+    p {
+        padding: 5vh 10vw 2vh 10vw;
+        font-size: 200%;
+        color: violet;
+    }
+
+    li {
+        padding: 3vh 0;
+    }
+
+    li::first-letter {
+        color: #9761E8;
+        font-size: 200%;
+    }
+}
+
+        /* <li>Style the page for mobile: add a margin, change the font-size & font-family etc.</li>
+            <li>Add a breakpoint for tablets. Change the styling of the page (margin, font-size, padding etc.) & change the font color</li>
+            <li>Add another breakpoint for desktop. Change the styling of the page & style the first letter of these list items</li> */
