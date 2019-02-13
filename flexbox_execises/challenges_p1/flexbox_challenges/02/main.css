@@ -2,6 +2,11 @@
 Reverse the order of the divs. */
 
 
+body {
+    display: flex;
+    flex-flow: row-reverse;
+}
+
 div {
     height: 100px;
     width: 150px;

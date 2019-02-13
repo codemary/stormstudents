@@ -2,6 +2,13 @@
  Set a reverse order. 
  Align items in the center of the page. */
 
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+
 div {
     height: 100px;
     width: 150px; 

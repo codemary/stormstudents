@@ -4,6 +4,8 @@ Set the alignment of the thrid item to center*/
 
 body {
     height: 800px;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 div {
@@ -13,4 +15,8 @@ div {
     margin: 1em;
     border: 2px solid red;
     text-align: center;
+}
+
+#third {
+    align-self: center;
 }
