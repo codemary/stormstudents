@@ -14,6 +14,7 @@ ul {
     background-color: deepskyblue;
     list-style: none;
     text-decoration: none;
+    display: flex;
 }
 
 a {
@@ -23,4 +24,32 @@ a {
 }
 
 /* */
+@media only screen and (max-width: 425px) {
+    
+    ul {
+        height: 50vh;
+        flex-flow: column;
+    }
 
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        border: solid 1px white;
+    }
+}
+
+@media only screen and (min-width: 426px) {
+    ul {
+        height: 10vh;
+        justify-content: flex-end;
+    }
+
+    li {
+        flex-basis: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
