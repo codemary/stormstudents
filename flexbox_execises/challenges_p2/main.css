@@ -1,15 +1,14 @@
 body {
     box-sizing: border-box;
     margin: 0 auto;
+    height: 100vh;
 }
 
 .c0 {
     display: flex;
     flex-flow: row wrap;
-}
-
-.c0 {
     border: 2px solid red;
+
 }
 
 .c1 {
@@ -38,6 +37,58 @@ body {
 
 .c7 {
     background-color: red;
+}
+
+@media only screen and (max-width: 320px) {
+    .c0 {
+        flex-flow: column nowrap;
+        flex-grow: 1;
+        height: inherit;
+        
+    }
+
+    div {
+        height: inherit;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 321px) {
+    .c0 {
+        height: inherit;
+    }
+
+    .c1, .c2 {
+        flex-basis: 100%;
+    }
+
+    .c3, .c4, .c5 {
+        flex-grow: 1;
+    }
+
+    .c6, .c7 {
+        flex-basis: 100%;
+    }
+
+}
+
+@media only screen and (min-width: 769px) {
+    .c0 {
+        height: 50%;
+    }
+
+    .c1, .c2 {
+        flex-basis: 50%;
+    }
+
+    .c3, .c4, .c5 {
+        flex-grow: 1;
+        flex-basis: 33.33%;
+    }
+
+    .c6, .c7 {
+        flex-basis: 50%;
+    }
+
 }
 
 
