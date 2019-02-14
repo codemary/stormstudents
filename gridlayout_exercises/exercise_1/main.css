@@ -7,3 +7,34 @@ img {
     width: 100%;
 }
 
+.wrapper {
+    height: 100vh;
+    width: 100vh;
+    margin: 0 auto;
+    background-color: mediumblue;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: 
+        ". . . d"
+        "a . . ."
+        ". b . ."
+        ". . c .";
+    grid-gap: 20px;
+}
+
+.image1 {
+    grid-area: a;
+}
+
+.image2 {
+    grid-area: b;
+}
+
+.image3 {
+    grid-area: c;
+}
+
+.image4 {
+    grid-area: d;
+}
