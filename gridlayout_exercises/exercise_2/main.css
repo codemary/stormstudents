@@ -7,3 +7,41 @@
 
  
 
+.container {
+    height: 100vh;
+    border: solid 2px darkcyan;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+}
+
+.item {
+    border: solid 1px mediumblue;
+}
+
+.two {
+    grid-column: 2 / 4;
+    background-color: black;
+    color: white;
+}
+
+.six {
+    grid-column: 3 / 5;
+    background-color: darkcyan;
+    color: white;
+}
+
+.eight {
+    grid-column: 2 / 3;
+    grid-row: 3 / 5;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.ten {
+    grid-column: 4 / 5;
+    grid-row: 3 / 5;
+    background-color: darkmagenta;
+    color: white;
+}
