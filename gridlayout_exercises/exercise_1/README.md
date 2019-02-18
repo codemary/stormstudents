@@ -7,4 +7,4 @@ In your document, you have four images.
 -Put each picture into a different row/column.
 
 EACH ROW AND COLUMN MUST BE USED.
-See images for reference 
+ee images for reference 
