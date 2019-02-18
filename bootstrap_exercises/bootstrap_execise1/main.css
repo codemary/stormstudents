@@ -1,0 +1,16 @@
+ul {
+    height: 10vh;
+}
+
+footer {
+    height: 15vh;
+}
+
+.card-body {
+    width: 20vw;
+    text-align: center;
+}
+
+/* .card-body:first-of-type {
+    background-color: purple;
+} */
