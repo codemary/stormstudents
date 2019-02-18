@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 2vh 1vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 20vh);
+    grid-gap: 2vh 1vw;
+    grid-template-areas: 
+        "h h h h"
+        "m m m a1"
+        "m m m a1"
+        "a2 s s a1"
+        "f f f f"
+}
+
+header {
+    grid-area: h;
+    background-color: rgba(255, 240, 40, 0.5);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+h1 {
+    font-size: 350%;
+    margin: auto 3vw;
+}
+
+nav {
+    background-color: rgba(150, 50, 255, 0.3);
+
+}
+
+ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    
+}
+
+li {
+
+}
+
+li a {
+    text-decoration: none;
+    font-size: 150%;
+    color: rgb(150, 50, 255);
+}
+
+.aside1 {
+    grid-area: a1;
+    background-color: rgba(0, 180, 90, 0.5);
+    padding: 3vh 3vw;
+
+
+}
+
+.aside2 {
+    grid-area: a2;
+    background-color: rgba(0, 180, 90, 0.5);
+    padding: 3vh 3vw;
+
+
+}
+
+main {
+    grid-area: m;
+    background-color: rgba(255, 150, 0, 0.5);
+    padding: 5vh 3vw;
+}
+
+h2 {
+    margin-bottom: 3vh;
+}
+
+section {
+    grid-area: s;
+    background-color: rgba(150, 50, 255, 0.3);
+    padding: 3vh 3vw;
+
+
+}
+
+footer {
+    grid-area: f;
+    background-color: rgba(150, 50, 255, 0.3);
+    padding: 3vh 3vw;
+
+}
+
+
