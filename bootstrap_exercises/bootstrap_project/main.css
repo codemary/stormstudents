@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+body {
+    
+    
+}
+
+header h5>a {
+    text-decoration: none;
+    color: white;
+}
+
+.flag {
+    height: 100vh;
+    background-image: url(./Assets/drachenfels.jpg);
+    background-position: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    
+
+}
+
+.flag>img {
+    height: 16vh;
+    border: solid black 1px;
+    box-shadow: 3px 3px 3px black;
+    border-radius: 50%;
+    margin-top: 20vh;
+    margin-right: 15px;
+}
+
+main{
+    
+}
+@media only screen and (min-width: 768px) {
+    .facts {
+        font-size: 150%
+    }
+}
+
+#empty {
+    width: 10vw;
+}
+
+.cities h5 {
+    width: 15vw;
+}
+
+.cities img {
+    width: 30vw;
+}
+
+#population {
+    width: 15vw;
+    text-align: right;
+}
+
+.seasons img {
+    height: 80vh;
+}
+
+#carouselExampleControls {
+    width: 80vw !important;
+    margin: 5vh auto;
+}
+
+#history {
+    height: 100vh
+}
