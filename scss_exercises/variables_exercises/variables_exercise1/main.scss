@@ -1,0 +1,91 @@
+$very-big: 10rem;
+$big: 8rem;
+$normal: 3rem;
+$small: 2rem;
+$tiny: .5rem;
+$first-color: rgba(255, 255, 0, 0.39);
+$second-color: blue;
+$third-color: purple;
+$fourth-color: green;
+$first-font: Arial, Helvetica, sans-serif;
+$second-font: 'Times New Roman', Times, serif;
+$third-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+$fourth-font: Georgia, 'Times New Roman', Times, serif;
+$fifth-font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+html, body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Very big, first color, first font */
+header {
+    height: $very-big; 
+    background-color: $first-color;
+    text-align: center;
+    padding-top: $small;
+    font-family: $first-font;
+}
+
+/* first font */
+h1 {
+    font-family: $first-font;
+}
+
+
+main {
+    margin: $tiny; 
+}
+
+/* very big, second font, second color */
+.huge {
+    font-family: $second-font;
+    font-size: $very-big;
+    color: $second-color;
+}
+
+/* big, second font, second color */
+.big {
+    font-family: $second-font;
+    font-size: $big;
+    color: $second-color;
+}
+
+/* normal, third font, third color */
+.medium {
+    font-family: $third-font;
+    font-size: $normal;
+    color: $third-color;
+}
+
+/* normal, fourth font, third color */
+.middle {
+    font-family: $fourth-font;
+    font-size: $normal;
+    color: $third-color;
+}
+
+/* small, fifth font, fourth color; */
+.small {
+    font-family: $fifth-font;
+    font-size: $small;
+    color: $fourth-color;
+}
+
+/* tiny, fifth font, fourth color */
+.tiny {
+    font-family: $fifth-font;
+    font-size: $tiny;
+    color: $fourth-color;
+    margin-bottom: $small;
+}
+
+/* first color, first font */
+footer {
+    height: $very-big;
+    background-color: $first-color;
+    text-align: center;
+    font-family: $first-font;
+    padding-top: 1rem;
+}
