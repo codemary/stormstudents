@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+}
+
+li {
+    list-style: none;
+    padding: 1rem;
+}
+
+nav a {
+    color: #0e749e;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    height: 20rem;
+    background-image: url(images_website/header.jpg);
+    background-size: cover;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+header > h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+}
+
+
+.img-mountain {
+    background-image: url(images_website/mountain.jpg);
+}
+
+.img-surfer {
+    background-image: url(images_website/surfer.jpg);
+}
+
+.img-tree {
+    background-image: url(images_website/tree.jpg);
+}
+
+
+.img {
+    background-size: cover;
+    height: 10rem;
+    width: 100%;
+    background-position: center;
+
+}
+.cards, .card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center; 
+}
+
+.card {
+    padding: 1rem;
+    background-color: #e0ddb2;
+    margin: 1rem;
+    border: 2px solid #dad6ab;
+    border-radius: 5px;
+}
+
+.card-text {
+    padding-top: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main {
+    display: flex; 
+    flex-flow: column;
+    justify-content: center;
+    margin: 1rem;
+}
+
+aside, article {
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+aside {
+    border: 2px solid #dad6ab;
+}
+
+footer  > ul {
+display: flex;
+justify-content: center;
+height: 4rem;
+background-color: #016690;
+}
+
+
+footer a {
+    color: #fff;
+}
+/* @media screen and (min-width: 500px) {
+  
+} */
+
+@media screen and (min-width: 768px) {
+    .card {
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        width: 80%;
+        margin: 0.5rem;
+    }
+
+    .card-text {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    nav > ul {
+        justify-content: flex-end;
+    }
+
+    main {
+        flex-flow: row nowrap;
+    }
+
+    article {
+        width: 50%;
+    }
+
+    aside {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .cards {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    .img {
+        width: 40%;
+    }
+   
+    .card-text {
+        width: 60%;
+    }
+}
