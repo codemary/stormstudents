@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
+
+        li a {
+            color: #0e749e;
+        }
+
+        @media screen and (min-width: 768px) {
+            justify-content: flex-end;
+        }
+    }
+
+    
+
+}
+
+li {
+    list-style: none;
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    height: 20rem;
+    background-image: url(images_website/header.jpg);
+    background-size: cover;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 1rem;
+
+    h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 2rem;
+    }
+}
+
+.cards, .card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center; 
+}
+
+.cards {
+    @media screen and (min-width: 1024px) {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}
+
+.card {
+    padding: 1rem;
+    background-color: #e0ddb2;
+    margin: 1rem;
+    border: 2px solid #dad6ab;
+    border-radius: 5px;
+
+    .img-mountain {
+        background-image: url(images_website/mountain.jpg);
+    }
+    
+    .img-surfer {
+        background-image: url(images_website/surfer.jpg);
+    }
+    
+    .img-tree {
+        background-image: url(images_website/tree.jpg);
+    }
+    
+    
+    .img {
+        background-size: cover;
+        height: 10rem;
+        width: 100%;
+        background-position: center;
+
+        @media screen and (min-width: 1024px) {
+            width: 40%;
+        }    
+    }
+
+    .card-text {
+        padding-top: 1rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        @media screen and (min-width: 768px) {
+            padding: 0 1rem 1rem 1rem;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 60%;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        width: 80%;
+        margin: 0.5rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 45%;
+    }
+}
+
+main {
+    display: flex; 
+    flex-flow: column;
+    justify-content: center;
+    margin: 1rem;
+
+    aside, article {
+        padding: 1rem;
+        font-size: 1rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    article {
+        @media screen and (min-width: 768px) {
+            width: 50%;
+        }
+    }
+    
+    aside {
+        border: 2px solid #dad6ab;
+
+        @media screen and (min-width: 768px) {
+            width: 25%;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        flex-flow: row nowrap;
+    }
+}
+
+footer  {
+    ul {
+        display: flex;
+        justify-content: center;
+        height: 4rem;
+        background-color: #016690;
+
+        li a {
+            color: #fff;
+        }
+    }
+} 
