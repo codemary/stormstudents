@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+body {
+  background-image: linear-gradient(to right, #735429, #BF9C6A, #735429); }
+
+header {
+  background-image: linear-gradient(to right, #345A73, #6A9EBF, #345A73);
+  color: #ffffff;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  header h1 {
+    font-family: "ZCOOL QingKe HuangYou", cursive;
+    font-size: 150%; }
+
+nav {
+  background-color: #6A9EBF; }
+  nav ul {
+    list-style: none;
+    height: 5;
+    display: flex;
+    justify-content: space-around;
+    align-content: center; }
+    @media screen and (min-width: 600px) {
+      nav ul {
+        justify-content: center; } }
+    @media screen and (min-width: 600px) {
+      nav ul li {
+        width: 20vw;
+        text-align: center;
+        padding: 2vh 1vw; } }
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-family: "ZCOOL QingKe HuangYou", cursive; }
+      nav ul li a:hover {
+        color: #A7DDFF; }
+
+main {
+  font-family: "Inconsolata", monospace; }
+  main .cards {
+    text-align: center;
+    margin: 2vh 1vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center; }
+    @media screen and (min-width: 600px) {
+      main .cards {
+        width: 90vw;
+        margin: 2vh auto;
+        flex-flow: row nowrap; } }
+    main .cards .card {
+      border: solid 1px #735429;
+      width: 75vw;
+      margin: 2vh 0; }
+      @media screen and (min-width: 600px) {
+        main .cards .card {
+          width: 30vw; } }
+      main .cards .card h4, main .cards .card p, main .cards .card button {
+        margin: 1vh 1vw; }
+    main .cards .card button {
+      background-color: #6A9EBF; }
+
+.portion {
+  margin: 2vh 1vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center; }
+  @media screen and (min-width: 600px) {
+    .portion {
+      margin: 2vh auto;
+      flex-flow: row nowrap;
+      width: 90vw; } }
+  .portion figure img {
+    width: 75vw; }
+    @media screen and (min-width: 600px) {
+      .portion figure img {
+        width: 30vw;
+        margin-right: 2vw; } }
+  .portion article {
+    width: 75vw; }
+
+aside, section {
+  font-family: "Inconsolata", monospace;
+  width: 75vw;
+  margin: 2vh auto; }
+  @media screen and (min-width: 600px) {
+    aside, section {
+      width: 90vw; } }
+
+footer ul {
+  list-style: none;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  @media screen and (min-width: 600px) {
+    footer ul {
+      justify-content: center; } }
+  @media screen and (min-width: 600px) {
+    footer ul li {
+      width: 20vw;
+      text-align: center;
+      padding: 2vh 1vw; } }
+  footer ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "ZCOOL QingKe HuangYou", cursive; }
+    footer ul li a:hover {
+      color: #A7DDFF; }

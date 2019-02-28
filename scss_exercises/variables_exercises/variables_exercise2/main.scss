@@ -3,19 +3,201 @@ $second-color: #A7DDFF;
 $third-color: #6A9EBF;
 $fourth-color: #735429;
 $fifth-color: #BF9C6A;
+$sixth-color: #ffffff;
+$seventh-color: #000000;
 
 
-$big-w: 90vw;
-$normal-w: 50vw;
+$very-big-w: 90vw;
+$big-w: 75vw;
+$normal-w: 30vw;
 $small-w: 20vw;
+$tiny-w: 1vw;
 
-$very-big-h: 100vh;
-$big-h: 50vh;
-$normal-h: 20vh;
-$small-h: 10;
-$tiny-h: 5;
+$very-big-h: 50vh;
+$big-h: 20vh;
+$normal-h: 10vh;
+$small-h: 5;
+$tiny-h: 2;
 
-$first-font: ;
-$second-font: ;
-$third-font: ;
-$fourth-font: ;
+$first-font: 'ZCOOL QingKe HuangYou', cursive;
+$second-font: 'Inconsolata', monospace;
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to right, $fourth-color, $fifth-color, $fourth-color);
+}
+
+header {
+    background-image: linear-gradient(to right, $first-color, $third-color, $first-color);
+    color: $sixth-color;
+    height: $normal-h;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+
+        font: {
+            family: $first-font;
+            size: 150%;
+        }
+    }
+}
+
+nav {
+    background-color: $third-color;
+
+    ul {
+        list-style: none;
+        height: $small-h;
+        display: flex;        
+        justify-content: space-around;
+        align-content: center;
+
+        @media screen and (min-width: 600px) {
+            justify-content: center;
+            
+        }
+
+        li {
+
+            @media screen and (min-width: 600px) {
+                width: $small-w;
+                text-align: center;
+                padding: 2vh 1vw;
+                
+            }
+
+            a {
+                text-decoration: none;
+                color: $sixth-color;
+                font-family: $first-font;
+    
+                &:hover {
+                    color: $second-color;
+                }
+            }
+        }
+    }
+}
+
+main {
+
+    font-family: $second-font;
+
+    .cards {
+        text-align: center;
+        margin: 2vh 1vw;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+
+        @media screen and (min-width: 600px) {
+            width: $very-big-w;
+            margin: 2vh auto;
+            flex-flow: row nowrap;
+
+        }
+
+        .card {
+            border: solid 1px $fourth-color;
+            width: $big-w;
+            margin: 2vh 0;
+
+            @media screen and (min-width: 600px) {
+                width: $normal-w;
+            }
+
+            h4, p, button {
+                margin: 1vh 1vw;
+            }
+        }
+
+        
+        .card button {
+            background-color: $third-color;
+        }
+    }
+}
+
+.portion {
+
+    margin: 2vh 1vw;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    @media screen and (min-width: 600px) {
+        margin: 2vh auto;
+        flex-flow: row nowrap;
+        width: $very-big-w;        
+    }
+
+    figure img {
+        width: $big-w;
+
+        @media screen and (min-width: 600px) {
+            width: $normal-w;
+            margin-right: 2vw;
+        }
+    }
+
+    article {
+        width: $big-w;
+    }
+
+}
+
+aside, section {
+
+    font-family: $second-font;
+    width: $big-w;
+    margin: 2vh auto;
+
+    @media screen and (min-width: 600px) {
+        width: $very-big-w;
+    }
+}
+
+footer {
+
+    ul {
+        list-style: none;
+        height: $normal-h;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        @media screen and (min-width: 600px) {
+            justify-content: center;
+            
+        }
+
+        li {
+
+            @media screen and (min-width: 600px) {
+                width: $small-w;
+                text-align: center;
+                padding: 2vh 1vw;
+                
+            }
+
+            a {
+                text-decoration: none;
+                color: $sixth-color;
+                font-family: $first-font;
+    
+                &:hover {
+                    color: $second-color;
+                }
+            }
+        }
+    }
+}
