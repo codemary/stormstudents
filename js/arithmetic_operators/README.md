@@ -13,7 +13,7 @@ Declare two variables "x" and "y" and assign number values.
 
 4. Divide x and y, and print the result to the console. 
 
-5. Declare another variable "z" with the value "10". Multiply x and y. Then, divide the result by z. Store the result in a new variable named "resultOne". Print "result" to the console.
+5. Declare another variable "z" with the value "10". Multiply x and y. Then, divide the result by z. Store the result in a new variable named "resultOne". Print "resultOne" to the console.
 
 5. Declare two variables "a" with the value of 15 and "b" with the value of 9. Print the remainder when a is divided by b. 
 
