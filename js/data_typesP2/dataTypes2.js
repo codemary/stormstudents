@@ -28,7 +28,7 @@ console.log(a==b);
 console.log(a==c);
 console.log(b==c);
 
-console.log(typeof a==b);
+console.log(typeof (a==b));
 
 /* infinity is a number */
 console.log(typeof Infinity);
