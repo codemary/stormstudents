@@ -1,4 +1,9 @@
 //1. Check if two given integer values are in the range of 50 to 99 (this includes both 50 and 99). Print true if either of them are in the range.
+let a = 30;
+let b = 60;
+if ((a >= 50 && a <= 99) || (b >= 50 && b <= 99)) {
+    console.log(true);
+} else console.log(false);
 
 //2. Check if three given integer values are in the range of 50 to 99 (inclusive). Print true if one or more of them are in the range.
 
