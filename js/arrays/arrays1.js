@@ -32,7 +32,7 @@ let asianCities = asianCitiesRaw.split(` `);
 console.log(asianCities);
 
 //8. Use an array method to select items 2-4 from the array of asianCities and store this in another variable.  
-let item2_4 = [asianCities[1], asianCities[2], asianCities[3]];
+let item2_4 = asianCities.slice(1, 4);
 console.log(item2_4);
 
 //9. Use a method to concat euroCities with asianCities. Store the result in a variable (eg. worldCities). 
