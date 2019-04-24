@@ -1,9 +1,10 @@
-//Declare two variables "a" with the value of true and "b" with the value of false. 
+//Declare two variables "a" with the value of true and "b" with the value of false.
+const a = true, b = false; 
 
 //1. Check the result of a AND b. 
-
+console.log(a && b);
 //2. Check the result of a OR b. 
-
+console.log(a || b);
 //3. Check the result of NOT a AND b. 
 
 //4. Declare three more variables "x", "y", "z". Give these variables number values. 
