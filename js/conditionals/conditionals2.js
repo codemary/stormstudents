@@ -79,3 +79,26 @@ if ((weather === `sunny`) && (temperature < 20)) {
 - C if the average is greater than 40  and less than or equal to 50. 
 - D if the average is greater than 30 and less than or equal to 40. 
 - F if the average is less than or equal to 30. */
+
+let studentMarks = [90, 64, 75, 83, 80, 55];
+let averageMark = 0;
+for (let i = 0; i < studentMarks.length; i++) {
+    averageMark = averageMark + studentMarks[i];
+}
+averageMark = averageMark / studentMarks.length;
+
+if (averageMark > 90) {
+    console.log(`The average is A+`);
+} else if (averageMark > 80) {
+    console.log(`The average is A`);
+} else if (averageMark > 70) {
+    console.log(`The average is B+`);
+} else if (averageMark > 60) {
+    console.log(`The average is B`);
+} else if (averageMark > 50) {
+    console.log(`The average is C+`);
+} else if (averageMark > 40) {
+    console.log(`The average is C`);
+} else if (averageMark > 30) {
+    console.log(`The average is D`);
+} else console.log(`The average is F`);
