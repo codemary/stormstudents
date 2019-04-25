@@ -39,8 +39,14 @@ let last = myString[9];
 console.log(myString.replace(myString[myString.length -1], first).replace(myString[0], last));
 
 
-
-
 //10. Create 3 different variables about yourself using strings as values e.g. let firstName = "Maria". Print the sentence to the console using string interpolation. e.g. of output "My name is Maria. I live in Berlin and I am a teacher". 
+let firstName = "Hannah";
+let lastName = "Klein";
+let job = "Webdeveloper";
+console.log(`My name is ${firstName} ${lastName}. I am going to be a ${job.toLowerCase()}.`);
 
 //11. Declare a variable and assign the value "the quick brown fox" (all in lower case). Capitalize the first letter of that string. Print the result to the console.
+let fox = "the quick brown fox.";
+fox = fox[0].toUpperCase() + fox.slice(1);
+console.log(fox);
+
