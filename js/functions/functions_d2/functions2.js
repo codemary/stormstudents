@@ -10,7 +10,22 @@ Examples:
 * XO("ooxXm") ➞ true (case insensitive)
 * XO("zpzpzpp") ➞ true (returns true if no x and o)
 * XO("zzoo") ➞ false */
+function XO(myString_1) {
+    let myString = myString_1.toLowerCase();
+    let myXs = 0;
+    let myOs = 0;
+    for (let i = 0; i < myString.length; i++) {
+        if (myString[i] === "x") {
+            myXs++
+        } else if (myString[i] === "o") {
+            myOs++
+        }
+    }
+    let isEqual = (myOs === myXs) ? true:false;
+    console.log(`There is the same number of O's and X's: ${isEqual}`);
+}
 
+XO("xoxo OXXo")
 
 console.log("----------");
 /* #### 2. Pie 
@@ -25,7 +40,14 @@ Examples:
 * equalSlices(8, 3, 2) ➞ true
 * equalSlices(8, 3, 3) ➞ false
 * equalSlices(24, 12, 2) ➞ true */
-
+function equalSlices(totalSlice_1, recipientsCount_1, slicesEach_1) {
+    let z = totalSlice_1;
+    let y = recipientsCount_1;
+    let x = slicesEach_1;
+    let isPossible = ((y * x) <= z) ? true:false;
+    console.log(`You can split it equally: ${isPossible}`)
+}
+equalSlices(8, 3, 3);
 
 console.log("----------");
 /* #### 3. Cubed
