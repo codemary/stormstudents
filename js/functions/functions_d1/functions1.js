@@ -174,3 +174,23 @@ Create a function that counts the number of occurrences of each letter in a stri
 Examples: 
 * countLetters("tree") -> expected output: t: 1, r: 1, e: 2 */
 
+function countingLetters(myString_1) {
+
+    let myString = myString_1;
+    let allTogether = {};
+
+    for (let i = 0; i < myString.length; i++) {
+        let character = myString[i].toUpperCase();
+
+        if (allTogether.hasOwnProperty(character) === true) {
+            allTogether[character]++;
+        }  
+        else {allTogether[character] = 1;
+        }
+    }
+    console.log(allTogether);
+}
+countingLetters("ILoveFoxes");
+
+console.log("-----------")
+
