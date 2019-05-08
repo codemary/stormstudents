@@ -176,23 +176,16 @@ Examples:
 
 function countingLetters(myString_1) {
 
-    let myString = myString_1.toLowerCase();
+    let myString = myString_1;
     let allTogether = {};
 
     for (let i = 0; i < myString.length; i++) {
-        let character = myString[i];
+        let character = myString[i].toUpperCase();
 
-        if (allTogether.hasOwnProperty('character') === false) {
-            let count = 0;
-
-            for (j = 0; j < myString.length; j++) {
-
-                if (character === myString[j]) { 
-                    count++
-                }
-            }
-
-            allTogether[character.toUpperCase()] = count;
+        if (allTogether.hasOwnProperty(character) === true) {
+            allTogether[character]++;
+        }  
+        else {allTogether[character] = 1;
         }
     }
     console.log(allTogether);
@@ -201,18 +194,3 @@ countingLetters("ILoveFoxes");
 
 console.log("-----------")
 
-function getFrequency(string) {
-    var freq = {};
-    for (var i=0; i<string.length;i++) {
-        var character = string[i];
-        if (freq[character]!=undefined) {
-           freq[character]++;
-        } else {
-           freq[character] = 1;
-        }
-        console.log(freq[character]);
-    }
-
-    console.log(freq);
-};
-getFrequency("treet")
