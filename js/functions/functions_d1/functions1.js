@@ -7,13 +7,13 @@ Create a function to reverse a number.
 Examples: 
 * reverse(34532) -> expected output: 23543 */
 
-function reverseNumber(num1_1) {
-    let num1 = num1_1;
+function reverseNumber(num1) {
     let num1ToArray = num1.toString().split("");
-    let num1Reverse = num1ToArray.reverse().join("");
+    let num1ReverseString = num1ToArray.reverse().join("");
+    let num1Reverse = Number(num1ReverseString);
     console.log(num1Reverse);
 }
-reverseNumber(123456789);
+reverseNumber(123.456789);
 
 console.log("----------");
 
@@ -41,9 +41,7 @@ Examples:
 * findGreatest([10, 20, 30], 12) -> expected output: 20, 30
 * findGreatest([0, 10, 3], 4) -> expected output: 10 */
 
-function biggerNumbers(numArray_1, num1_1) {
-    let num1 = num1_1;
-    let numArray = numArray_1;
+function biggerNumbers(numArray, num1) {
     let arrayBigger = [];
     for (let i = 0; i < numArray.length; i++) {
         if (numArray[i] > num1) {
@@ -52,7 +50,7 @@ function biggerNumbers(numArray_1, num1_1) {
     }
     console.log(arrayBigger);
 }
-biggerNumbers([10, 20, 30], 12);
+biggerNumbers([3, 4, 5, 6], 4);
 
 console.log("----------");
 
@@ -61,8 +59,7 @@ Create a function which calculates how old a dog is in doggie years. The functio
 Example
 * dogAge(4) -> expected output example: "Your doggo is 28 years old in human years!" */
 
-function dogYears(dogAge_1) {
-    let dogAge = dogAge_1;
+function dogYears(dogAge) {
     let doggyYears = dogAge * 7;
     console.log(`Your doggo is ${doggyYears} years old in human years!`);
 }
@@ -95,8 +92,7 @@ Create a function to find the longest word in string.
 Examples: 
 * longestWord("this is a web development course") ->  expected output: "development" */
 
-function searchLongest(myString_1) {
-    let myString = myString_1;
+function searchLongest(myString) {
     let myArray = myString.split(" ");
     let longestWord = "";
     for(let i = 0; i < myArray.length; i++) {
@@ -106,7 +102,7 @@ function searchLongest(myString_1) {
     }
     console.log(longestWord);
 }
-searchLongest("oiasjfiasuhg I love foxes");
+searchLongest("I love foxes");
 
 console.log("----------");
 /* #### 7. AEIOU: Vowels
@@ -115,8 +111,7 @@ Examples:
 * findVowels("this is a string") -> expected output: 4 vowels found
 * Notes: vowels are "a, e, i, o u".  */
 
-function findVowels(myString_1) {
-    let myString = myString_1;
+function findVowels(myString) {
     let vowels = ["a", "e", "i", "o", "u"];
     let vowelsFound = [];
     let myArray = myString.toLowerCase().split("");
@@ -139,8 +134,7 @@ Examples:
 * detectType("hello") -> expected output: type of argument is a string. 
 * detectType(4) -> expected output: type of argument is a number.  */
 
-function findType(unknown_1) {
-    let unknown = unknown_1;
+function findType(unknown) {
     console.log(`Type of argument is a ${typeof unknown}.`);
 }
 findType(NaN);
@@ -152,9 +146,7 @@ Create a function that accepts two arguments: a string and a letter. The functio
 Examples: 
 * countOccurrences("this is a string", "i") -> expected output: occurrences of i: 3  */
 
-function findOccurrence(myString_1, myLetter_1) {
-    let myString = myString_1;
-    let myLetter = myLetter_1;
+function findOccurrence(myString, myLetter) {
     let myArray = myString.toLowerCase().split("");
     let lettersFound = [];
     for (let i = 0; i < myArray.length; i++) {

@@ -10,6 +10,7 @@ Examples:
 * XO("ooxXm") ➞ true (case insensitive)
 * XO("zpzpzpp") ➞ true (returns true if no x and o)
 * XO("zzoo") ➞ false */
+
 function XO(myString_1) {
     let myString = myString_1.toLowerCase();
     let myXs = 0;
@@ -22,10 +23,17 @@ function XO(myString_1) {
         }
     }
     let isEqual = (myOs === myXs) ? true:false;
-    console.log(`There is the same number of O's and X's: ${isEqual}`);
+    return isEqual;
 }
 
-XO("xoxo OXXo")
+let isEqualResult_1 = `There is the same number of O's and X's: ${XO("ooxx")}`
+console.log(isEqualResult_1);
+let isEqualResult_2 = `There is the same number of O's and X's: ${XO("xooxx")}`
+console.log(isEqualResult_2);
+let isEqualResult_3 = `There is the same number of O's and X's: ${XO("ooxXm")}`
+console.log(isEqualResult_3);
+let isEqualResult_4 = `There is the same number of O's and X's: ${XO("zpzpzpp")}`
+console.log(isEqualResult_4);
 
 console.log("----------");
 /* #### 2. Pie 
@@ -40,14 +48,23 @@ Examples:
 * equalSlices(8, 3, 2) ➞ true
 * equalSlices(8, 3, 3) ➞ false
 * equalSlices(24, 12, 2) ➞ true */
-function equalSlices(totalSlice_1, recipientsCount_1, slicesEach_1) {
-    let z = totalSlice_1;
-    let y = recipientsCount_1;
-    let x = slicesEach_1;
+
+function equalSlices(totalSlice, recipientsCount, slicesEach) {
+    let z = totalSlice;
+    let y = recipientsCount;
+    let x = slicesEach;
     let isPossible = ((y * x) <= z) ? true:false;
-    console.log(`You can split it equally: ${isPossible}`)
+    return isPossible;
 }
-equalSlices(8, 3, 3);
+
+let canSplit_1 = `You can split it equally: ${equalSlices(11, 5, 3)}`;
+console.log(canSplit_1);
+let canSplit_2 = `You can split it equally: ${equalSlices(8, 3, 2)}`;
+console.log(canSplit_2);
+let canSplit_3 = `You can split it equally: ${equalSlices(8, 3, 3)}`;
+console.log(canSplit_3);
+let canSplit_4 = `You can split it equally: ${equalSlices(44, 12, 2)}`;
+console.log(canSplit_4);
 
 console.log("----------");
 /* #### 3. Cubed
@@ -60,6 +77,25 @@ Examples:
 * sumOfCubes([]) ➞ 0
 **Note**
 If given an empty array, return 0. */
+
+function cubed(myArray_1) {
+    let myArray = myArray_1;
+    let sum = 0;
+    for (let i = 0; i < myArray.length; i++) {
+        let num = myArray[i];
+        sum = sum + Math.pow(num, 3);
+    } 
+    return `The sum of the cubes is ${sum}.`
+}
+
+let cubeResult_1 = cubed([1, 5, 9]);
+console.log(cubeResult_1);
+let cubeResult_2 = cubed([3, 4, 5]);
+console.log(cubeResult_2);
+let cubeResult_3 = cubed([2]);
+console.log(cubeResult_3);
+let cubeResult_4 = cubed([]);
+console.log(cubeResult_4);
 
 
 console.log("----------");
@@ -75,6 +111,25 @@ Examples
 The given integer will always be equal to or greater than 1.
 Include the number (the number in the parameters). */
 
+function multipleFours(endNum_1) {
+    let endNum = endNum_1;
+    let multiArray = [];
+    for (let i = 1; i <= endNum; i++) {
+        if (i % 4 === 0) {
+            multiArray.push(i * 10);
+        } else {
+            multiArray.push(i);
+        }
+    }
+    return multiArray;
+}
+
+let multiFoursArray_4 = multipleFours(4);
+console.log(multiFoursArray_4);
+let multiFoursArray_3 = multipleFours(3);
+console.log(multiFoursArray_3);
+let multiFoursArray_12 = multipleFours(12);
+console.log(multiFoursArray_12);
 
 console.log("----------");
 /* #### 5. Months
@@ -83,6 +138,23 @@ Create a function that takes a number (from 1 to 12) and return its correspondin
 * monthName(12) ➞ "December"
 * monthName(6) ➞ "June" */
 
+function getTheMonthName(numberOfMonth) {
+    //excluding numbers that do not match any months
+    if ((numberOfMonth < 1) || (numberOfMonth > 12)) {
+        return "The number you entered is invalid for this function";
+    }
+    else
+    {   let monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August",  
+            "September", "October", "November", "December"];
+        //getting the name of the month by index in array
+        let nameOfMonth = monthsArray[numberOfMonth - 1];
+        return nameOfMonth;
+    }
+}
+
+console.log(getTheMonthName(13));
+console.log(getTheMonthName(6));
+console.log(getTheMonthName(10));
 
 console.log("----------");
 /* #### 6. Even Number Generator
@@ -93,6 +165,20 @@ Examples:
 * evenNums(2) ➞ [2]
 If there are no even numbers, return an empty array. */ 
 
+function evenNumberGen(endNumber) {
+    let evenNumArray = [];
+    for (let i = 1; i <= endNumber; i++) {
+        //finding even numbers and pushing them into array
+        if (i % 2 === 0) {
+            evenNumArray.push(i);
+        }
+    }
+    return evenNumArray;
+}
+
+console.log(evenNumberGen(20));
+console.log(evenNumberGen(0));
+console.log(evenNumberGen(12));
 
 console.log("----------");
 /* #### 7. Dictionary
@@ -105,6 +191,22 @@ Examples
 * If none of the words match, return an empty array.
 * Keep the filtered array in the same relative order as the original array of words. */
 
+function findMatchingWord(myLetters_1, wordArray) {
+    let myLetters = myLetters_1.toLowerCase();
+    let filteredArray = [];
+    for (let i = 0; i < wordArray.length; i++) {
+        //extracting first letters of the words in array to match with the starting letters
+        let comparePart = wordArray[i].substr(0, myLetters.length).toLowerCase();
+        if (comparePart === myLetters) {
+            filteredArray.push(wordArray[i]);
+        }
+    }
+    return filteredArray;
+}
+
+console.log(findMatchingWord("bu", ["button", "breakfast", "border"]));
+console.log(findMatchingWord("tri", ["triplet", "Tries", "trip", "piano", "tree"]));
+console.log(findMatchingWord("beau", ["pastry", "delicious", "name", "boring"]));
 
 console.log("----------");
 /* #### 8. is a four letter word. 
@@ -113,6 +215,23 @@ Examples:
 * isFourLetters(["John", "James", "Jack", "Jeanne"]) ➞ ["John", "Jack"]
 * isFourLetters(["Tomato", "Corn", "Lettuce"]) ➞ ["Corn"]
 * isFourLetters(["Dog", "Cat", "Deer"]) ➞ ["Deer"] */
+
+function getFourLetterWords(searchThisArray_1) {
+    let searchThisArray = searchThisArray_1;
+    let myFourLettersArray = []
+    //searching for four-lettered words
+    for (let i = 0; i < searchThisArray.length; i++) {
+        let word = searchThisArray[i];
+        if (word.length === 4) {
+            myFourLettersArray.push(word);
+        }
+    }
+    return myFourLettersArray;
+}
+
+console.log(getFourLetterWords(["John", "James", "Jack", "Jeanne"]));
+console.log(getFourLetterWords(["Tomato", "Corn", "Lettuce"]));
+console.log(getFourLetterWords(["Dog", "Cat", "Deer"]));
 
 
 console.log("----------");
@@ -125,6 +244,22 @@ Examples:
 * isSymmetrical(9939) ➞ false
 * isSymmetrical(1112111) ➞ true */
 
+function isSymmetrical(checkNum) {
+    //reversing the number to compare it
+    let numArray = checkNum.toString().split("");
+    let numArrayReverse = numArray.reverse();
+    let numReverse = Number(numArrayReverse.join(""));
+    //comparing the initial number with the reversed number
+    let isSymmCheck = (checkNum === numReverse);
+
+    return isSymmCheck;
+}
+
+console.log(`7227 is symmetrical: ${isSymmetrical(7227)}`);
+console.log(`12567 is symmetrical: ${isSymmetrical(12567)}`);
+console.log(`44444444 is symmetrical: ${isSymmetrical(44444444)}`);
+console.log(`9939 is symmetrical: ${isSymmetrical(9939)}`);
+console.log(`1112111 is symmetrical: ${isSymmetrical(1112111)}`);
 
 console.log("----------");
 /* #### 10. c4n y0u r34d th15? 
@@ -135,6 +270,18 @@ Examples:
 * hackerSpeak("become a coder") ➞ "b3c0m3 4 c0d3r"
 **Notes**
 For your program to work properly, the function should replace all 'a's with 4, 'e's with 3, 'i's with 1, 'o's with 0, and 's's with 5. */
+
+function hackerSpeak(myString) {
+    //replacing a, e, i, o, s with numbers
+    let myStringHack = myString.replace(/a/ig, 4).replace(/e/ig, 3).replace(/i/ig, 1).replace(/o/ig, 0).replace(/s/ig, 5);
+    return myStringHack;
+}
+let myStringHack_1 = hackerSpeak("javascript is cool");
+console.log(myStringHack_1);
+let myStringHack_2 = hackerSpeak("programming is fun");
+console.log(myStringHack_2);
+let myStringHack_3 = hackerSpeak("become a coder");
+console.log(myStringHack_3);
 
 
 console.log("----------");
