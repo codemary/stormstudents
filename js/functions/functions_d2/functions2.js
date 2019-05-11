@@ -1,4 +1,4 @@
-console.log("----------");
+console.log("-----1-----");
 /* #### 1. XO
 Create a function that takes a string, checks if it has the same number of 'x's and 'o's and returns either true or false.
 * Return a boolean value (true or false).
@@ -26,16 +26,12 @@ function XO(myString_1) {
     return isEqual;
 }
 
-let isEqualResult_1 = `There is the same number of O's and X's: ${XO("ooxx")}`
-console.log(isEqualResult_1);
-let isEqualResult_2 = `There is the same number of O's and X's: ${XO("xooxx")}`
-console.log(isEqualResult_2);
-let isEqualResult_3 = `There is the same number of O's and X's: ${XO("ooxXm")}`
-console.log(isEqualResult_3);
-let isEqualResult_4 = `There is the same number of O's and X's: ${XO("zpzpzpp")}`
-console.log(isEqualResult_4);
+console.log(`There is the same number of O's and X's: ${XO("ooxx")}`);
+console.log(`There is the same number of O's and X's: ${XO("xooxx")}`);
+console.log(`There is the same number of O's and X's: ${XO("ooxXm")}`);
+console.log(`There is the same number of O's and X's: ${XO("zpzpzpp")}`);
 
-console.log("----------");
+console.log("-----2-----");
 /* #### 2. Pie 
 Create a function that determines whether or not it's possible to split a pie fairly given these three parameters:
 * Total number of slices.
@@ -57,16 +53,12 @@ function equalSlices(totalSlice, recipientsCount, slicesEach) {
     return isPossible;
 }
 
-let canSplit_1 = `You can split it equally: ${equalSlices(11, 5, 3)}`;
-console.log(canSplit_1);
-let canSplit_2 = `You can split it equally: ${equalSlices(8, 3, 2)}`;
-console.log(canSplit_2);
-let canSplit_3 = `You can split it equally: ${equalSlices(8, 3, 3)}`;
-console.log(canSplit_3);
-let canSplit_4 = `You can split it equally: ${equalSlices(44, 12, 2)}`;
-console.log(canSplit_4);
+console.log(`You can split it equally: ${equalSlices(11, 5, 3)}`);
+console.log(`You can split it equally: ${equalSlices(8, 3, 2)}`);
+console.log(`You can split it equally: ${equalSlices(8, 3, 3)}`);
+console.log(`You can split it equally: ${equalSlices(44, 12, 2)}`);
 
-console.log("----------");
+console.log("-----3-----");
 /* #### 3. Cubed
 Create a function that takes in an array of numbers and returns the sum of its cubes.
 Examples: 
@@ -78,27 +70,22 @@ Examples:
 **Note**
 If given an empty array, return 0. */
 
-function cubed(myArray_1) {
-    let myArray = myArray_1;
+function cubed(arrayOfNumbers) {
     let sum = 0;
-    for (let i = 0; i < myArray.length; i++) {
-        let num = myArray[i];
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        let num = arrayOfNumbers[i];
         sum = sum + Math.pow(num, 3);
     } 
     return `The sum of the cubes is ${sum}.`
 }
 
-let cubeResult_1 = cubed([1, 5, 9]);
-console.log(cubeResult_1);
-let cubeResult_2 = cubed([3, 4, 5]);
-console.log(cubeResult_2);
-let cubeResult_3 = cubed([2]);
-console.log(cubeResult_3);
-let cubeResult_4 = cubed([]);
-console.log(cubeResult_4);
+console.log(cubed([1, 5, 9]));
+console.log(cubed([3, 4, 5]));
+console.log(cubed([2]));
+console.log(cubed([]));
 
 
-console.log("----------");
+console.log("-----4-----");
 /* #### 4. Amplify the Multiples of 4
 Create a function that takes an integer and returns an array from 1 to the given number, where:
 * If the number can be divided evenly by 4, amplify it by 10 (i.e. return 10 times the number).
@@ -111,8 +98,7 @@ Examples
 The given integer will always be equal to or greater than 1.
 Include the number (the number in the parameters). */
 
-function multipleFours(endNum_1) {
-    let endNum = endNum_1;
+function GetMultipleFours(endNum) {
     let multiArray = [];
     for (let i = 1; i <= endNum; i++) {
         if (i % 4 === 0) {
@@ -124,14 +110,11 @@ function multipleFours(endNum_1) {
     return multiArray;
 }
 
-let multiFoursArray_4 = multipleFours(4);
-console.log(multiFoursArray_4);
-let multiFoursArray_3 = multipleFours(3);
-console.log(multiFoursArray_3);
-let multiFoursArray_12 = multipleFours(12);
-console.log(multiFoursArray_12);
+console.log(GetMultipleFours(4));
+console.log(GetMultipleFours(3));
+console.log(GetMultipleFours(12));
 
-console.log("----------");
+console.log("-----5-----");
 /* #### 5. Months
 Create a function that takes a number (from 1 to 12) and return its corresponding month name as a string.
 * monthName(3) ➞ "March"
@@ -144,7 +127,7 @@ function getTheMonthName(numberOfMonth) {
         return "The number you entered is invalid for this function";
     }
     else
-    {   let monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August",  
+    {   const monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August",  
             "September", "October", "November", "December"];
         //getting the name of the month by index in array
         let nameOfMonth = monthsArray[numberOfMonth - 1];
@@ -156,7 +139,7 @@ console.log(getTheMonthName(13));
 console.log(getTheMonthName(6));
 console.log(getTheMonthName(10));
 
-console.log("----------");
+console.log("-----6-----");
 /* #### 6. Even Number Generator
 Create a function that finds all even numbers from 1 to the given number.
 Examples:
@@ -180,7 +163,7 @@ console.log(evenNumberGen(20));
 console.log(evenNumberGen(0));
 console.log(evenNumberGen(12));
 
-console.log("----------");
+console.log("-----7-----");
 /* #### 7. Dictionary
 Create a function that takes in an initial word and filters out an array to contain words that start with the same letters as the initial word.
 Examples
@@ -208,7 +191,7 @@ console.log(findMatchingWord("bu", ["button", "breakfast", "border"]));
 console.log(findMatchingWord("tri", ["triplet", "Tries", "trip", "piano", "tree"]));
 console.log(findMatchingWord("beau", ["pastry", "delicious", "name", "boring"]));
 
-console.log("----------");
+console.log("-----8-----");
 /* #### 8. is a four letter word. 
 Create a function that takes an array of strings. Return all words in the array that are exactly four letters.
 Examples: 
@@ -216,8 +199,7 @@ Examples:
 * isFourLetters(["Tomato", "Corn", "Lettuce"]) ➞ ["Corn"]
 * isFourLetters(["Dog", "Cat", "Deer"]) ➞ ["Deer"] */
 
-function getFourLetterWords(searchThisArray_1) {
-    let searchThisArray = searchThisArray_1;
+function getFourLetterWords(searchThisArray) {
     let myFourLettersArray = []
     //searching for four-lettered words
     for (let i = 0; i < searchThisArray.length; i++) {
@@ -234,7 +216,7 @@ console.log(getFourLetterWords(["Tomato", "Corn", "Lettuce"]));
 console.log(getFourLetterWords(["Dog", "Cat", "Deer"]));
 
 
-console.log("----------");
+console.log("-----9-----");
 /* #### 9. Is it Symmetrical? 
 Create a function that takes a number as an argument and returns true or false depending on whether the number is symmetrical or not. A number is symmetrical when it is the same as its reverse.
 Examples:
@@ -261,7 +243,7 @@ console.log(`44444444 is symmetrical: ${isSymmetrical(44444444)}`);
 console.log(`9939 is symmetrical: ${isSymmetrical(9939)}`);
 console.log(`1112111 is symmetrical: ${isSymmetrical(1112111)}`);
 
-console.log("----------");
+console.log("-----10-----");
 /* #### 10. c4n y0u r34d th15? 
 Create a function that takes a string as an argument and returns a coded (h4ck3r 5p34k) version of the string.
 Examples:
