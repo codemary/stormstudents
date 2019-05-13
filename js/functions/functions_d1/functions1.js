@@ -166,23 +166,50 @@ Create a function that counts the number of occurrences of each letter in a stri
 Examples: 
 * countLetters("tree") -> expected output: t: 1, r: 1, e: 2 */
 
-function countingLetters(myString_1) {
-
-    let myString = myString_1;
-    let allTogether = {};
+function countingLetters(myString) {
+    let countedLetters = {};
 
     for (let i = 0; i < myString.length; i++) {
         let character = myString[i].toUpperCase();
 
-        if (allTogether.hasOwnProperty(character) === true) {
-            allTogether[character]++;
+        if (countedLetters.hasOwnProperty(character) === true) {
+            countedLetters[character]++;
         }  
-        else {allTogether[character] = 1;
+        else {countedLetters[character] = 1;
+        }
+    }
+    console.log(countedLetters);
+}
+countingLetters("I Love Foxes!");
+
+//--------------------
+
+function countingLettersAlt(myString_1) {
+
+    let myString = myString_1.toLowerCase();
+
+    let allTogether = {};
+
+    for (let i = 0; i < myString.length; i++) {
+        let character = myString[i];
+
+        if (allTogether.hasOwnProperty('character') === false) {
+            let count = 0;
+
+            for (j = 0; j < myString.length; j++) {
+
+                if (character === myString[j]) { 
+                    count++
+                }
+            }
+
+            allTogether[character.toUpperCase()] = count;
         }
     }
     console.log(allTogether);
 }
-countingLetters("ILoveFoxes");
+
+countingLettersAlt("I love foxes")
 
 console.log("-----------")
 

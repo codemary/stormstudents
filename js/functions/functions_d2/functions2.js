@@ -11,10 +11,11 @@ Examples:
 * XO("zpzpzpp") ➞ true (returns true if no x and o)
 * XO("zzoo") ➞ false */
 
-function XO(myString_1) {
+function countingXO(myString_1) {
     let myString = myString_1.toLowerCase();
     let myXs = 0;
     let myOs = 0;
+    //counting x and o
     for (let i = 0; i < myString.length; i++) {
         if (myString[i] === "x") {
             myXs++
@@ -26,10 +27,10 @@ function XO(myString_1) {
     return isEqual;
 }
 
-console.log(`There is the same number of O's and X's: ${XO("ooxx")}`);
-console.log(`There is the same number of O's and X's: ${XO("xooxx")}`);
-console.log(`There is the same number of O's and X's: ${XO("ooxXm")}`);
-console.log(`There is the same number of O's and X's: ${XO("zpzpzpp")}`);
+console.log(`There is the same number of O's and X's: ${countingXO("ooxx")}`);
+console.log(`There is the same number of O's and X's: ${countingXO("xooxx")}`);
+console.log(`There is the same number of O's and X's: ${countingXO("ooxXm")}`);
+console.log(`There is the same number of O's and X's: ${countingXO("zpzpzpp")}`);
 
 console.log("-----2-----");
 /* #### 2. Pie 
@@ -100,6 +101,7 @@ Include the number (the number in the parameters). */
 
 function GetMultipleFours(endNum) {
     let multiArray = [];
+    //finding multiple fours and multiplying them by 10
     for (let i = 1; i <= endNum; i++) {
         if (i % 4 === 0) {
             multiArray.push(i * 10);
