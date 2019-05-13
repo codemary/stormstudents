@@ -85,23 +85,38 @@ console.log("-----5-----");
 /* #### 5. Filter
 Given this array: [3,62,234,7,23,74,23,76,92], use the array filter method and an arrow function to create an array of the numbers greater than `70`. Store the result into a variable.  */
 
+let getHigherThan70 = numbersToSearch => {
+  let higherThan70 = [];
+  for (let i = 0; i < numbersToSearch.length; i++) {
+    if (numbersToSearch[i] > 70) {
+      higherThan70.push(numbersToSearch[i]);
+    }
+  }
+  return higherThan70;
+}
+console.log(getHigherThan70([3, 62, 234, 7, 23, 74, 23, 76, 92]));
+
 console.log("-----6-----");
 /* #### 6. Geometrizer
 Create two functions that calculate the properties of a circle. 
-
+---------
 Create a function called calcCircumfrence:
 * Pass the radius to the function.
 * Calculate the circumference based on the radius, and output "The circumference is NN".
-
+---------
 Create a function called calcArea:
 * Pass the radius to the function.
 * Calculate the area based on the radius, and output "The area is NN". */
+const radiusInCm = 35; 
+let calcCircumference = radius => (2 * Math.PI * radius).toFixed(2);
+console.log(`The circumference is ${calcCircumference(radiusInCm)}cm.`);
 
+let calcArea = radius => (Math.PI * Math.pow(radius, 2)).toFixed(2);
+console.log(`The area is ${calcArea(radiusInCm)}cm.`);
 
 console.log("-----7-----");
 /* #### 7. The Inventors
 Given the following array, complete the tasks below. 
-
 ```javascript */
     const inventors = [{
         first: 'Albert',
@@ -177,10 +192,22 @@ Given the following array, complete the tasks below.
       }
     ];
 /* ```
-
 * Filter the list of inventors for those who were born in the 1500's. 
 * Sort the inventors by birthdate, oldest to youngest. 
 * Return an array of the inventors' first and last names. */
+let getBirthCentury = inventors => {
+  for (let i = 0; i < inventors.length; i++) {
+    if ((inventors[i].year >= 1500) && (inventors[i].year < 1600)){
+      console.log(inventors[i])
+    }
+  }
+  return;
+}
+getBirthCentury(inventors);
+
+/* let sortTheInventors = inventors => {
+  for ()
+} */
 
 
 console.log("-----8-----");
@@ -188,7 +215,7 @@ console.log("-----8-----");
 Given the following array, sort the people alphabetically by last name.
 
 ```javascript */
-  const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry',
+  const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes,         Mick', 'Beecher, Henry',
       'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert',
       'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester',
       'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano',
