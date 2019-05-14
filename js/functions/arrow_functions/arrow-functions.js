@@ -206,8 +206,23 @@ let getBirthCentury = inventors => {
 getBirthCentury(inventors);
 
 /* let sortTheInventors = inventors => {
-  for ()
+  let inventorsSorted = [];
+  for (let i = 0; i < inventors.length; i++) {
+    let yearToCompare = inventors[i].year;
+
+    for (let j = 0; j < inventors.length; j++) {
+      let biggerYear = inventors[j].year;
+      Math.min(yearToCompare, biggerYear)
+      
+    }
+  }
 } */
+
+let object = "ak j sd";
+
+console.log(Array.from(object))
+
+
 
 
 console.log("-----8-----");
