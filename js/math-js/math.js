@@ -61,12 +61,21 @@ Create a function to to display the current date and time in the following forma
 let myDate = new Date();
 
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let isToday = dayNames[myDate.getDay()];
-let getHours = myDate.getHours();
-let getMinutes = myDate.getMinutes();
-let getSeconds = myDate.getSeconds();
+console.log(myDate.getDay());
+
 let getDateInfo = () => {
-    console.log(`Today is ${isToday}. The current time is ${getHours}:${getMinutes}:${getSeconds}.`); 
+    let isToday = dayNames[myDate.getDay()];
+    let getHours = myDate.getHours();
+    let getMinutes = myDate.getMinutes();
+    let getSeconds = myDate.getSeconds();
+    if (getHours > 12) {
+        getHours = getHours - 12 + "PM";
+    }  else if (getHours === 12) {
+        getHours = getHours + "PM"
+    }
+    else getHours = getHours + "AM";
+
+    return console.log(`Today is ${isToday}. The current time is ${getHours}:${getMinutes}:${getSeconds}.`); 
 }
 
 getDateInfo();
@@ -74,16 +83,34 @@ getDateInfo();
 console.log("-----2D-----");
 /* #### 2. Date Formats
 Create a function to display the current date in the following formats dd-mm-yyyy, dd/mm/yyyy. */
-
+let getFullDate = () => {
+    let getDay = myDate.getDate();
+    let getMonth = myDate.getMonth();
+    let getYear = myDate.getFullYear();
+    return console.log(`${getDay}-${getMonth}-${getYear}, ${getMonth}/${getDay}/${getYear}`)
+}
+getFullDate();
 
 console.log("-----3D-----");
 /* #### 3. Is New Year's day a Sunday?
 Create a function to check whether the 1st of January is a Sunday between the years of 2014 and 2050. */
-
+let newYearsDaySundays = (startYear, endYear) => {
+    let sundayArray = [];
+    for (let i = startYear; i < endYear; i++) {
+        let newYear = new Date(`January 1, ${i}`)
+        let isSunday = newYear.getDay();
+        if (isSunday === 0) {
+            sundayArray.push(`01-01-${i}`);
+        }
+    }
+    return console.log(`These New Years days were Sundays: ${sundayArray.join(", ")}`)
+}
+newYearsDaySundays(2014, 2050);
 
 console.log("-----4D-----");
 /* #### 4. How many days till Christmas?
 Create a function to calculate the days till Christmas.  */
+
 
 
 console.log("-----5D-----");
