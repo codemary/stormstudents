@@ -36,7 +36,7 @@ console.log(myString.includes(`Java`));
 //9. Create a new string from a given string by changing the position of first and last characters. The string length must be greater than or equal to 2. eg. of output JavaScript => tavaScripJ
 let first = myString[0];
 let last = myString[9];
-console.log(myString.replace(myString[myString.length -1], first).replace(myString[0], last));
+console.log(myString.replace(myString[9], first).replace(myString[0], last));
 
 
 //10. Create 3 different variables about yourself using strings as values e.g. let firstName = "Maria". Print the sentence to the console using string interpolation. e.g. of output "My name is Maria. I live in Berlin and I am a teacher". 
