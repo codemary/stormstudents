@@ -104,10 +104,12 @@ let incrOrDecr = checkThisArr => {
         else answer = "neither";
         i++;
     }
-    while (i < checkThisArr.length);
+    while (i < (checkThisArr.length - 1));
     return console.log(answer);
 }
-incrOrDecr([1, 2, 3]);
+incrOrDecr([5, 4, 2, 1, 0, -1, -3]); //decreasing
+incrOrDecr([-5, -2, 0, 2, 5, 6, 10]); //increasing
+incrOrDecr([1, 5, -2, 5, 8, 0]); //neither
 
 
 
@@ -120,6 +122,16 @@ console.log("-----1FE-----");
 // * format(["samuel", "MARIA", "luke", "mary"]) ➞ ["Samuel", "Maria", "Luke", "Mary"]
 // * format(["Cynthia", "Karen", "Jane", "Carrie"]) ➞ ["Cynthia", "Karen", "Jane", "Carrie"]
 // * Notes: Keep names in the same order and make sure that only the first lesson of the name is capitalised. See "Maria" in example 2. 
+let capitalizeNames = arrOfNames => {
+    capitalizedArr = [];
+    arrOfNames.forEach(element => {
+        capitalizedArr.push(element[0].toUpperCase() + element.slice(1).toLowerCase());
+    });
+    return console.log(capitalizedArr);
+}
+capitalizeNames(["matt", "sara", "lara"]);
+capitalizeNames(["samuel", "MARIA", "luke", "mary"]);
+capitalizeNames(["Cynthia", "Karen", "Jane", "Carrie"]);
 	
 
 console.log("-----2FE-----");
@@ -133,12 +145,35 @@ console.log("-----2FE-----");
 // * [1, 6, 6, 9, 9] ➞ [1, 6, 9]
 // * [2, 2, 2, 2, 2, 2] ➞ [2]
 // * [5, 10, 15, 20, 25] ➞ [5, 10, 15, 20, 25]
+function noDuplicates(numbersArray) {
+    let uniqueNumsArr = [];
+    numbersArray.forEach(element => {
+            if (!uniqueNumsArr.includes(element)) {
+                uniqueNumsArr.push(element);
+        }
+    })
+    return console.log(uniqueNumsArr);
+}
+noDuplicates([1, 4, 4, 7, 7, 7]);
 
 
-console.log("-----3FE-----");
+console.log("-----3-----");
 // #### 3. Repeat it 
 // Create a function that takes two arguments (item, times). Create a function that repeats the "item" as many times as specified by "times". The first argument (item) is the item that needs repeating while the second argument (times) is the number of times the item is to be repeated. Return the result in an array.
 // * Example: repeat("example", 3) -> ["example", "example", "example"]
+function repeatIt(thisString, thisManyTimes) {
+    i = 0;
+    let repeatedArr = [];
+    do {
+        repeatedArr.push(thisString);
+        i++
+    }
+    while (i < thisManyTimes);
+    return console.log(repeatedArr);
+}
+repeatIt("nana-nana", 6);
+repeatIt("BATMAN", 1);
+
 
 
 

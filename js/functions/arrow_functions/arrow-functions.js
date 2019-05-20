@@ -230,7 +230,7 @@ console.log("-----8-----");
 Given the following array, sort the people alphabetically by last name.
 
 ```javascript */
-  const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes,         Mick', 'Beecher, Henry',
+  const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry',
       'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert',
       'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester',
       'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano',
@@ -239,3 +239,9 @@ Given the following array, sort the people alphabetically by last name.
       'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert',
       'Blair, Tony', 'Blake, William'
     ];
+
+let sortNames = arrayOfNames => {
+  let sortedArray = arrayOfNames.sort();
+  return console.log(sortedArray);
+}
+sortNames(people);
