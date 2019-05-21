@@ -155,12 +155,32 @@ console.log("-----5-----");
 // * "Maria Smith is a teacher. She teaches children."
 // * "Maria Smith is a driver. She drives a truck." 
 let myJobObject = {
-    "Natasha Romanoff": "assassin",
-    "Bruce Wayne": "superhero",
-    "Lara Croft": "tomb raider",
-    "Gandalf": "wizard",
-    "His Grace, The Duke of Ankh, Sir Samuel Vimes": "Commander of Watch " 
+    "assassin": "Natasha Romanoff",
+    "superhero": "Bruce Wayne",
+    "tomb raider": "Lara Croft",
+    "wizard": "Gandalf the Grey",
+    "Commander of the Watch": "His Grace, The Duke of Ankh, Sir Samuel Vimes"
 }
-let tellMeAboutJobs = (jobObject) => {
-
+let tellMeAboutJobs = () => {
+    for (let key in myJobObject) {
+        switch (key) {
+            case "assassin":
+                console.log(`${myJobObject[key]} is an ${key}, but she's trying to kill only bad people. \n-----`);
+            break;
+            case "superhero":
+                console.log(`${myJobObject[key]} is a ${key}, but he's not the hero we need, he's the one we deserve. \n-----`);
+            break;
+            case "tomb raider":
+                console.log(`${myJobObject[key]} is a ${key}. She searches tombs for treasures because the dead people don't need them anymore. \n-----`);
+            break;
+            case "wizard":
+                console.log(`${myJobObject[key]} is actually a ${key}. But that didn't pay very well, so he became white and started advertising for washing powder. \n "It is so white it seems to be magic!" *wink* \n-----`);
+            break;
+            case "Commander of the Watch":
+                console.log(`${myJobObject[key]} is ${key} in Ankh-Morpork. Commander Vimes doesn't like the phrase 'The innocent have nothing to fear', believing the innocent have everything to fear, mostly from the guilty but in the longer term even more from those who say things like 'The innocent have nothing to fear'. \n-----`);
+            break;
+        }
+    }
+    return;
 }
+tellMeAboutJobs();
