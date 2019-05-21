@@ -186,6 +186,29 @@ console.log("-----Bonus-----");
 // * findOdd([-2, -2, 3, 3, -5, 7, -5, 7, 7]) ➞ 7 (appears three times)
 // * findOdd([3, 2, 2, 3, 20, 10, 2, 20, 10, 3, 3, 2, 2]) ➞ 2 (appears 5 times)
 // * findOdd([12]) ➞ 12 (appears once)
+function getOddOccurrences(arrayOfNums) {
+    let oddOccurrence = "";
+    for (const element of arrayOfNums) {
+        let count = 0;
+        //count occurrences of a number by comparison 
+        for (const compare of arrayOfNums) {
+            if (element === compare) {
+                count++
+            }
+        }
+        //see if it is a odd count
+        let findOdd = (count % 2 != 0);
+        switch (findOdd) {
+            case true:
+            oddOccurrence = `${element} occurs an odd number of times`;
+            break;
+        }
+    }
+    return console.log(oddOccurrence);
+}
+getOddOccurrences([-2, -2, 3, 3, -5, 7, -5, 7, 7]);
+getOddOccurrences([3, 2, 2, 3, 20, 10, 2, 20, 10, 3, 3, 2, 2]);
+getOddOccurrences([12]);
 
 
 
@@ -202,3 +225,28 @@ console.log("-----Factors-----");
 // * factorChain([1, 1, 1, 1, 1, 1]) ➞ true
 // * factorChain([2, 4, 6, 7, 12]) ➞ false
 // * factorChain([10, 1]) ➞ false
+function getFactorChain(arrayOfNums) {
+    i = 0;
+    let isFactorChain = true;
+    while (i < (arrayOfNums.length - 1)) {
+        let factor = Number.isInteger(arrayOfNums[i+1] / arrayOfNums[i]);
+        // console.log(factor);
+        switch (factor) {
+            case false: 
+            isFactorChain = false;
+            break;
+        }
+        i++;
+    }
+    return console.log(`It is a factor chain ${isFactorChain}`);
+}
+getFactorChain([3, 6, 13, 36]);
+getFactorChain([1, 2, 4, 8, 16, 32]);
+getFactorChain([1, 1, 1, 1, 1, 1]);
+getFactorChain([2, 4, 6, 7, 12]);
+getFactorChain([10, 1]);
+
+console.log("------------");
+let arrayOfNums = [2, 4, 6, 7, 9];
+console.log(Number.isInteger(arrayOfNums[2] / arrayOfNums[0]));
+console.log(Number.isInteger(7 / 6));
