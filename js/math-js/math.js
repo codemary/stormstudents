@@ -135,3 +135,16 @@ Examples and Expected Output:
 * getDaysInMonth(2, 2012); --> 29
 * getDaysInMonth(9, 2012); --> 30
 * getDaysInMonth(12, 2012); --> 31 */
+let getDaysInAMonth = (myMonth, myYear) => {
+    let myDays = new Date(myYear, (myMonth + 1), 0);
+    return myDays.getDate();
+}
+
+let getLengthOfFebruary = () => {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    for (let i = 0; i < 12; i++) {
+        console.log(`${getDaysInAMonth(i, 2019)} - ${months[i]}`);
+    }
+}
+getLengthOfFebruary();
+// getDaysInAMonth(1, 2017);
