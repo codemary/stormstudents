@@ -193,46 +193,113 @@ Examples:
 * pigLatin("He told us a very exciting tale.") ➞ "Ehay oldtay usway away eryvay excitingway aletay."
 **Bonus**
 * Preserve proper capitalization as in the examples above. */
-/* let pigLatinTranslator = translateThis => {
-    let wordEnd = "ay"
+let pigLatinTranslator = translateThis => {
+    //prepare word endings
+    let wordEnd = "ay";
     let vowelEnd = "way";
-    let translateArr = translateThis.split(" ") 
-    for (let i = 0; i < translateArr.length; i++) {
-        if ((translateArr[i][0] === translateArr[i][0].toUpperCase) || ()) {
+    //split the string in a way, that it keeps the dots, commas, and spaces  
+    let stringToArray = translateThis.split(/([,.\s])/); 
+    //excluding empty element that came with the dots and commas
+    let translateArr = stringToArray.filter(element => element.length > 0);
+    let pigLatinArray = [];
 
+    for (let element  of translateArr) {
+        //excluding the signs and spaces from the process
+        if ((element === ".") || (element === ",") || (element === " ")) {
+            pigLatinArray.push(element)
+        } else {
+            //declaring the start letters - in lowercase too, for switch comparison
+            let startLetter = element[0];
+            let startLetterLow = startLetter.toLowerCase();
+            //combining words with vowels in the beginning with pig latin endings
+            switch (startLetterLow) {
+                case "a":
+                case "e":
+                case "i":
+                case "o":
+                case "u": pigLatinArray.push(element.concat(vowelEnd));
+                break;
+                default: {    
+                    let newStartUpp = element[1].toUpperCase();
+                    //searching for words that are longer than two letters and start with uppercase.
+                    if ((startLetter === startLetter.toUpperCase()) && (element.length > 2)) {
+                    //concatenating the second letter to uppercase, the rest of the word, the first letter to lowercase, and the pig latin ending  
+                        pigLatinArray.push(newStartUpp.concat(element.slice(2), startLetterLow, wordEnd));
+                    } 
+                    // the same for short words, where the middle can be left out
+                    else if (startLetter === startLetter.toUpperCase()) {
+                        pigLatinArray.push(newStartUpp.concat(startLetterLow, wordEnd));
+                    } 
+                    //in the end for words in lowercase
+                    else {
+                        pigLatinArray.push(element.slice(1).concat(startLetter, wordEnd));
+                    }
+                }
+                break;
+            }
         }
     }
-} */
-
+    //array to string
+    let pigLatinString = pigLatinArray.join("");
+    return console.log(pigLatinString);
+}
+pigLatinTranslator("I love Foxes, and to me that is great.");
 
 
 
 console.log("-----10-----");
 /* #### 10. X To The Power of X
 Create a function that takes a base number and an exponent number and returns the calculation.
-
 Examples
 * calculateExponent(5, 5) ➞ 3125
-* calculateExponent(10, 10) ➞ 10000000000
+* calculateExponent(10, 10) ➞ 10.000.000.000
 * calculateExponent(3, 3) ➞ 27
-
 * **Notes**
 * All test inputs will be positive integers. */
+let thePower = (num, exponent) => console.log(Math.pow(num, exponent));
+thePower(5, 5);
+thePower(10, 10);
+thePower(3, 3);
 
 
 console.log("-----extra-----");
 /* **Extra Problem** 
 * **Bonus** Word Ranking
 Create a function that takes a string of words and returns the highest scoring word. Each letter of a word scores points according to it's position in the alphabet: a = 1, b = 2, c = 3, etc.
-
 Examples:
 * wordRank("The quick brown fox.") ➞ "brown"
 * wordRank("Nancy is very pretty.") ➞ "pretty"
 * wordRank("Check back tomorrow, man!") ➞ "tomorrow"
 * wordRank("Today is Wednesday.") ➞ "Wednesday"
-
 * **Notes**
 * The returned string should only contain alphabetic characters (a-z).
 * Preserve case in the returned string (see 4th example above). */
+let wordRanking = myString => {
+    let letterValues = {
+        "a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7, "h": 8, "i": 9, "j": 10, "k": 11, "l": 12, "m": 13, "n": 14, "o": 15, "p": 16, "q": 17, "r": 18, "s": 19, "t": 20, "u": 21, "v": 22, "w": 23, "x": 24, "y": 25, "z": 26
+    };
+    //declaring an array for the comparison
+    let myStringFiltered = myString.replace(/[,.?!]/g, "");
+    let checkThisArray = myStringFiltered.split(" ");
+    let bestWord = "";
+    let totalCount = 0;
+    
+    checkThisArray.forEach(element => {
+        let count = 0;
+        for (let i = 0; i < element.length; i++) {
+            count = count + letterValues[element[i].toLowerCase()]
+        }
+        if (count > totalCount) {
+            bestWord = element;
+            totalCount = count;
+        }
+    })
+    return console.log(bestWord);
+}
+wordRanking("The quick brown fox.");
+wordRanking("Nancy is very pretty.");
+wordRanking("Check back tomorrow, man!");
+wordRanking("Today is Wednesday.");
+
 
 
