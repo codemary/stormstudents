@@ -110,6 +110,19 @@ newYearsDaySundays(2014, 2050);
 console.log("-----4D-----");
 /* #### 4. How many days till Christmas?
 Create a function to calculate the days till Christmas.  */
+let howLongUntilChristmas = (today) => {
+    let oneMinute = 60 * 1000;
+    let oneHour = oneMinute * 60;
+    let oneDay = oneHour * 24;
+    let nextChristmas = new Date();
+    nextChristmas.setMonth(11);
+    nextChristmas.setDate(25);
+    let milliSecondsUntil = nextChristmas.getTime() - today.getTime();
+    let daysUntil = Math.floor(milliSecondsUntil / oneDay);
+    return console.log(daysUntil);
+}
+howLongUntilChristmas(myDate);
+console.log(myDate.getTime());
 
 
 
