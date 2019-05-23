@@ -114,6 +114,7 @@ console.log(`The circumference is ${calcCircumference(radiusInCm)}cm.`);
 let calcArea = radius => (Math.PI * Math.pow(radius, 2)).toFixed(2);
 console.log(`The area is ${calcArea(radiusInCm)}cm.`);
 
+
 console.log("-----7-----");
 /* #### 7. The Inventors
 Given the following array, complete the tasks below. 
@@ -195,6 +196,7 @@ Given the following array, complete the tasks below.
 * Filter the list of inventors for those who were born in the 1500's. 
 * Sort the inventors by birthdate, oldest to youngest. 
 * Return an array of the inventors' first and last names. */
+console.log("-----7a-----");
 let getBirthCentury = inventors => {
   for (let i = 0; i < inventors.length; i++) {
     if ((inventors[i].year >= 1500) && (inventors[i].year < 1600)){
@@ -205,30 +207,32 @@ let getBirthCentury = inventors => {
 }
 getBirthCentury(inventors);
 
-/* let sortTheInventors = inventors => {
-  let inventorsSorted = [];
-  for (let i = 0; i < inventors.length; i++) {
-    let yearToCompare = inventors[i].year;
 
-    for (let j = 0; j < inventors.length; j++) {
-      let biggerYear = inventors[j].year;
-      Math.min(yearToCompare, biggerYear)
-      
-    }
+console.log("-----7b-----");
+let sortTheInventors = inventors => {
+  inventors.sort(function (a, b) {
+    return a.year - b.year;
+  })
+  return console.log(inventors);
+}
+sortTheInventors(inventors);
+
+
+console.log("-----7c-----");
+function firstAndLast(inventors) {
+  let firstAndLastArr = [];
+  for (let element of inventors) {
+    firstAndLastArr.push(`${element["first"]} ${element["last"]}`);
   }
-} */
-
-let object = "ak j sd";
-
-console.log(Array.from(object))
-
+  return console.log(firstAndLastArr);
+}
+firstAndLast(inventors);
 
 
 
 console.log("-----8-----");
 /* #### 8. Look at all the people...
 Given the following array, sort the people alphabetically by last name.
-
 ```javascript */
   const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry',
       'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert',
