@@ -139,12 +139,14 @@ let getDaysInAMonth = (myMonth, myYear) => {
     let myDays = new Date(myYear, (myMonth + 1), 0);
     return myDays.getDate();
 }
+console.log(getDaysInAMonth(1, 400));
 
-let getLengthOfFebruary = () => {
+let getLengthOfMonths = () => {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     for (let i = 0; i < 12; i++) {
         console.log(`${getDaysInAMonth(i, 2019)} - ${months[i]}`);
     }
 }
-getLengthOfFebruary();
+console.log("---2019---");
+getLengthOfMonths();
 // getDaysInAMonth(1, 2017);
