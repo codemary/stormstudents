@@ -247,6 +247,3 @@ getFactorChain([2, 4, 6, 7, 12]);
 getFactorChain([10, 1]);
 
 console.log("------------");
-let arrayOfNums = [2, 4, 6, 7, 9];
-console.log(Number.isInteger(arrayOfNums[2] / arrayOfNums[0]));
-console.log(Number.isInteger(7 / 6));
