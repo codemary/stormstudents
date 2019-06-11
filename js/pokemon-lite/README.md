@@ -1,10 +1,10 @@
-#Pokemon Lite
+# Pokemon Lite
 
 Try to make a simplified version of pokemon!
 
 Create a new index.js file.
 
-##Functionality:
+## Functionality:
 
 * You should have a Pokemon constructor function that creates new pokemon that have name, health, magic and a bunch of skills (the skills can be stored in an array or object).
 * You should have an AttackSkill constructor function for creating new attacks. Attacks consumes the pokemon's magic to cause damage to other pokemons. Each individual pokemon has a specific set of attacks. The AttackSkill method should take in three arguments: the name of the attack, the amount of damage the attack does, and the amount of magic the attack requires. For example, here we're creating a 'lightning' attack skill that causes 40 damage, and requires 30 magic: 
@@ -82,4 +82,4 @@ bulbasaur.attack(0, pikachu);
 // bulbasaur is already dead!
 // That's just one example. You can call different series of attacks to get different results!
 ```
-##Bonus: Add some more Pokemon and attack types. 
+## Bonus: Add some more Pokemon and attack types. 
