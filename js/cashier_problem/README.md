@@ -19,11 +19,4 @@ Example: Price: €4.50, Paid amount: €20, Change: 15.50
 * Notes
 * Include outputs for exceptions e.g. price: €4, paid amount: €3. 
 
-**Bonus** 
-Rework this to also include the cash available in the drawer. 
-Example: 
-cashier(price, paid, cid)
-cashier(50, 40, 60) -> expected output: "1 x €10 & cash left in drawer = €10". 
-
-
 
