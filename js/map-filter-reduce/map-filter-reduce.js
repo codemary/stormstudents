@@ -14,82 +14,117 @@ console.log("-----2-----");
 // #### 2. Sum Up
 // Write a function called sum that uses the reduce to sum up an array of numbers. Do NOT use a typical loop; just use the reduce method.
 // * Examples:
-// * sum([1,2,3,4,5]); //returns 15
-// * sum([6,7,7]); //returns 20
+function getSum(numArray) {
+    let sum = numArray.reduce((acc, curr) => acc + curr);
+    return console.log(sum);
+}
+getSum([1,2,3,4,5]); //returns 15
+getSum([6,7,7]); //returns 20
 
 
 
 console.log("-----3-----");
 // #### 3. instanceOf
 // ##### Reduce
-// Sum up the instances of each of these:
-// ```javascript
-// const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
-// ```
-// * Expected Output: 
-// ```javascript
-// object = {
-//   bike: 2
-//   car: 5
-//   pogostick: 1
-//   truck: 3
-//   van: 2
-//   walk: 2
-// }
+// Sum up the instances of each of these.
+// const object = {
+    //   bike: 2,
+    //   car: 5,
+    //   pogostick: 1,
+    //   truck: 3,
+    //   van: 2,
+    //   walk: 2
+    // }
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
+function getInstanceOf(stringArray) {
+    const instanceCount = stringArray.reduce((obj, item) => {
+        if (obj[item]) {
+            obj[item]++;
+        } else obj[item] = 1;
+        return obj;
+    }, {})
+    return console.log(instanceCount);
+}
+getInstanceOf(data);
 
 
 console.log("-----4-----");
 // #### 4. Inventors
 // Look at the piece of code below and complete the tasks and questions.
 // ```javascript
-// const inventors = [
-//       { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
-//       { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
-//       { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
-//       { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
-//       { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
-//       { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
-//       { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
-//       { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
-//       { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
-//       { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
-//       { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
-//       { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
-//     ];
+const inventors = [
+      { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+      { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+      { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+      { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+      { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+      { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+      { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+      { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+      { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+      { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+      { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+      { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+    ];
 // ##### Map
 // * Give an array of inventors' first and last names. 
 // ##### Reduce
 // * How many years did all of the inventors live? 
 
+function getFullNamePlusLifeSpan(inventors) {    
+    const inventorsFullName = inventors.map(inventor => `${inventor.first} ${inventor.last}`)
 
+    const lifeSpanArr = inventors.reduce((arr, item) => {
+        arr.push(item.passed - item.year);
+        return arr;
+    }, []);
+    const fullInfo = {};
+    for (let i = 0; i < inventors.length; i++) {
+        fullInfo[inventorsFullName[i]] = lifeSpanArr[i];
+    }
+    return console.log(fullInfo);
+}
+getFullNamePlusLifeSpan(inventors);
 
 console.log("-----5-----");
 // #### 5. Square Root
 // Given an array of numbers, find the square root of those numbers using map. 
+const getSquareRoot = arrayOfNumbers.map(number => Math.sqrt(number));
+console.log(getSquareRoot);
 
 
 console.log("-----6-----");
 // #### 6. Instances of Letters
 // Create a function that takes a string as an argument and counts the number of each letter in that string. 
+function getInstanceOfLetter(myString) {
+    const instanceCount = [...myString].reduce((obj, item) => {
+        if (obj[item]) {
+            obj[item]++;
+        } else obj[item] = 1;
+        return obj;
+    }, {})
+    return console.log(instanceCount);
+};
+getInstanceOfLetter("i love foxes very much")
 
 
 console.log("-----7-----");
 // #### 7. List of Movies
 // Given the code below, complete the task
 // ```javascript
-// let friends = [{
-//   name: 'Maria',
-//   films: ['Avengers: Infinity War', 'Avatar' ],
-//   age: 22
-// }, {
-//   name: 'John',
-//   films: ['Forest Gump', 'Pulp Fiction', 'Spider-Man'],
-//   age: 29
-// }, {
-//   name: 'Jean',
-//   films: ['Deadpool', 'Incredibles 2'],
-//   age: 20
-// }];
+let friends = [{
+  name: 'Maria',
+  films: ['Avengers: Infinity War', 'Avatar' ],
+  age: 22
+}, {
+  name: 'John',
+  films: ['Forest Gump', 'Pulp Fiction', 'Spider-Man'],
+  age: 29
+}, {
+  name: 'Jean',
+  films: ['Deadpool', 'Incredibles 2'],
+  age: 20
+}];
 // * Create a function that returns an array of your friends favourite films!
 
 
