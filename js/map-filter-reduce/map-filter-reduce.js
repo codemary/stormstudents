@@ -112,7 +112,7 @@ console.log("-----7-----");
 // #### 7. List of Movies
 // Given the code below, complete the task
 // ```javascript
-let friends = [{
+let friendsData = [{
   name: 'Maria',
   films: ['Avengers: Infinity War', 'Avatar' ],
   age: 22
@@ -126,7 +126,14 @@ let friends = [{
   age: 20
 }];
 // * Create a function that returns an array of your friends favourite films!
-
+function getFavouriteMovies(friends) {
+    const favouriteMovies = friends.reduce((arr, friend) => {
+        arr = [...arr, ...friend.films];
+        return arr;
+    }, []);
+    return console.log((favouriteMovies));
+}
+getFavouriteMovies(friendsData);
 
 
 console.log("-----8-----");
@@ -135,6 +142,12 @@ console.log("-----8-----");
 // * Examples:
 // * filterEvens([1,2,3,11,12,13]); //returns [2,12]
 // * filterEvens([22,2,31,110,6,13]); //returns [22,2,110,6]
+function filterEvens(myArr) {
+    const filteredArr = myArr.filter(num => num % 2 ===0)
+    return console.log(filteredArr);
+}
+filterEvens([1,2,3,11,12,13]);
+filterEvens([22,2,31,110,6,13]);
 
 
 
@@ -144,52 +157,75 @@ console.log("-----9-----");
 // Given an array, create a function which uses filter() to filter an array based on a search query.
 // * Example
 // ``` javascript
-// const friends = ["Rika", "Jacob", "Alex", "Oliver", "Marika"];
+const friends = ["Rika", "Jacob", "Alex", "Oliver", "Marika"];
 
 // console.log(filterItems(friends, 'ka')); // ["Rika", "Marika"];
 // console.log(filterItems(friends, 'e')); // ["Alex", "Oliver"];
+function filterItems(myArr, letters) {
+    const filteredArr = myArr.filter(item => item.toLowerCase().includes(letters.toLowerCase()));
+    return console.log(filteredArr);
+}
+filterItems(friends, "ka");
+filterItems(friends, "e");
 
 
 console.log("-----10-----");
 // #### 10. Reformat an Array
-// Given the following array: 
-// ```javascript
-// let origialArray = [{key: 1, name: "John"},
-// 	     {key: 2, name: "Maria"},
-// 	     {key: 3, name: "Oliver"},
-// 	     {key: 4, name: "Jane"},
-// 	     {key: 5, name: "Jack"},
-// 	     {key: 6, name: "Albert"},
-// 	     {key: 7, name: "Harry"},
-// 	     {key: 8, name: "Ron"},
-// 	     {key: 9, name: "Kenneth"},
-// 	     {key: 10, name: "Kyle"}];
+// Given the following array
 // * Reformat the array as follow: 
-// ```javascript
 // let newArray = [{1: "John"}, {2: "Maria"}, {3: "Oliver"}, {4: "Jane"}, {5: "Jack"}, {6: "Albert"}, {7: "Harry"}, {8: "Ron"}, {9: "Kenneth"}, {10: "Kyle"}];
+let originalArray = [{key: 1, name: "John"},
+                    {key: 2, name: "Maria"},
+                    {key: 3, name: "Oliver"},
+                    {key: 4, name: "Jane"},
+                    {key: 5, name: "Jack"},
+                    {key: 6, name: "Albert"},
+                    {key: 7, name: "Harry"},
+                    {key: 8, name: "Ron"},
+                    {key: 9, name: "Kenneth"},
+                    {key: 10, name: "Kyle"}];
+
+function reformatArray(myArr) {
+    const reformated = myArr.reduce((arr, obj) => {
+        arr.push({[obj.key] : obj.name});
+        return arr;
+    }, []);
+    return console.log(reformated);
+}
+reformatArray(originalArray);
+         
+
 
 
 console.log("-----11-----");
 // #### 11. Sorting Numbers
 // Given the following array of numbers, sort from smallest to largest. 
-// ```javascript
-// let arrayOfIntegers = [4, 200, 90, 30, 12, 75, 21, 3];
-// ```
+let arrayOfIntegers = [4, 200, 90, 30, 12, 75, 21, 3];
 // * Once you are finished, answer the following questions: **Which method did you use to solve the problem? Why did you have to use this method?** 
+function sortArray(myArr) {
+    const sortedArray = myArr.sort((a, b) => a - b );
+    return console.log(sortedArray);
+}
+sortArray(arrayOfIntegers);
+
 
 
 console.log("-----12-----");
 // #### 12. Sort Shapes
 // Given the following array of shapes, complete the task below:
-// ```javascript
-// let shapes = [
-//     [5, "Pentagon"],
-//     [3, "Triangle"],
-//     [8, "Octagon"],
-//     [4, "Rectangle"],
-//     [6, "Hexagon"],
-//     [10, "Decagon"]
-//     ];
+let shapes = [
+    [5, "Pentagon"],
+    [3, "Triangle"],
+    [8, "Octagon"],
+    [4, "Rectangle"],
+    [6, "Hexagon"],
+    [10, "Decagon"]
+    ];
+function sortShapes(myArr) {
+    let sortedArr = myArr.sort((a, b) => a[0] - b[0]);
+    return console.log(sortedArr);
+}
+sortShapes(shapes);
 // * Sort the 2D array based on the shapes' sides. Sorting should be in ascending order from smaller number to greater number. 
 // * Example of output:
 // ``` javascript
