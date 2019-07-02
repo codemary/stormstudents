@@ -80,6 +80,14 @@ console.log("-----4-----");
 // // will log to the console:
 // { str: 'cat' }
 // ```
+class ArrayString {
+    constructor(myArr) {
+        this.str = myArr.join('')
+    }
+}
+let favoriteAnimal = new ArrayString(['f', 'o', 'x']);
+console.log(favoriteAnimal);
+
 
 console.log("-----5-----");
 // #### 5.  Calendar App
