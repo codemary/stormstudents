@@ -4,6 +4,7 @@
 * Create a constructor function called `Hero` That will accept a variable name as an argument.
 * Use the Hero constructor to create an object myHero with the name 'Link'.
 
+
 #### 2. Playlist
 Create a constructor function called `Song`. `Song` should take in two arguments, title and artist, which should both be added as properties when the `Song` constructor function is used. The `Song` function should also have a method called play on its prototype. When called, the play function should console.log the name of that specific song preceded by the word 'Playing:'.
 
