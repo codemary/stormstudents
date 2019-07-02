@@ -1,5 +1,5 @@
 // # Constructor & Prototype 
-
+console.log("-----1-----");
 // #### 1. Hero
 // * Create a constructor function called `Hero` That will accept a variable name as an argument.
 // * Use the Hero constructor to create an object myHero with the name 'Link'.
@@ -14,6 +14,7 @@ let Link = new Hero("Link", "sword fighting", "no alias");
 console.log(Link);
 
 
+console.log("-----2-----");
 // #### 2. Playlist
 // Create a constructor function called `Song`. `Song` should take in two arguments, title and artist, which should both be added as properties when the `Song` constructor function is used. The `Song` function should also have a method called play on its prototype. When called, the play function should console.log the name of that specific song preceded by the word 'Playing:'.
 
@@ -28,14 +29,49 @@ console.log(Link);
 // song4.play(); //logs 'Playing: Bloom'
 // song2.play(); //logs 'Playing: Sweet Life'
 // song3.play(); //logs 'Playing: Intro'
-// ```
+class Song {
+    constructor(title, artist) {
+        this.title = title;
+        this.artist = artist;
+    }
+    play() {
+        return console.log(`Playing: ${this.title} - ${this.artist}`);
+    }
+}
+let song1 = new Song('Time', 'Pink Floyd');
+let song2 = new Song('Sweet Life', 'Frank Ocean');
+let song3 = new Song('Intro', 'M83');
+let song4 = new Song('Bloom', 'ODESZA');
+let song5 = new Song('The Less I Know The Better', 'Tame Impala');
 
+
+song4.play(); //logs 'Playing: Bloom - ODESZA'
+song2.play(); //logs 'Playing: Sweet Life - Frank Ocean'
+song3.play(); //logs 'Playing: Intro - M83'
+
+
+
+console.log("-----3-----");
 // #### 3. Person
 // * Create a constructor function called `Person` That will accept the arguments name and occupation.
 // * Use Person.prototype to add a method whoAreYou that will return: My name is [the person's name] and I am a [the person's occupation].
 // * Use the person constructor to create an object person1 with the name Michaelangello and occupation Ninja.
 // * Use the whoAreYou method to log to the console person1's name and occupation.
+class Person {
+    constructor(name, occupation) {
+        this.name = name;
+        this.occupation = occupation;
+    }
+}
+Person.prototype.whoAreYou = function() {
+    console.log(`My name is ${this.name} and I am a ${this.occupation}.`);
+}
+let Michaelangello = new Person('Michaelangello', 'Ninja');
+console.log(Michaelangello);
+Michaelangello.whoAreYou();
 
+
+console.log("-----4-----");
 // #### 4. 
 // Create a constructor function called arrayString that will take an array as an argument. This constructor will join the array to a single string, and store the string in a variable called str. For example, the following code:
 // ```javascript
@@ -45,6 +81,7 @@ console.log(Link);
 // { str: 'cat' }
 // ```
 
+console.log("-----5-----");
 // #### 5.  Calendar App
 // As part of a calendar app, you will need to create an object that, for any given month, will store all the days in that month.
 
