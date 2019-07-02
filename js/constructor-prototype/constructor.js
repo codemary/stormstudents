@@ -113,4 +113,29 @@ console.log("-----5-----");
 // ```
 // * hint: create a new Date object and use the getDate method to get the number of days in a given month. 
 
-
+class Day {
+    constructor(year, month, day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+        this.daysInMonth = [];
+        // this.daysInMonth = getDaysInMonth() 
+    }
+    getDaysInMonth() {
+        let myDays = new Date(this.year, (this.month), 0);
+        for (let i = 1; i <= myDays.getDate(); i++) {
+                this.daysInMonth.push({'month': this.month, 'day': i, 'year': this.year})
+        }; 
+    }
+    // getDaysInMonth() {
+    //     let daysArr = []
+    //     let myDays = new Date(this.year, (this.month + 1), 0);
+    //     for (let i = 1; i <= myDays.getDate(); i++) {
+    //             daysArr.push({'month': this.month, 'day': i, 'year': this.year})
+    //     }; 
+    //     return daysArr;
+    // }
+}
+let dayInJune2019 = new Day(2019, 6, 25);
+dayInJune2019.getDaysInMonth();
+console.log(dayInJune2019);
