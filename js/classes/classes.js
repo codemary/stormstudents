@@ -18,6 +18,21 @@ console.log("-----2-----");
 // #### 2. Volume
 // Write a JavaScript program to get the volume of a cylinder with four decimal places using object classes. 
 // * Note: Volume of a cylinder : V = πr2h - r is the radius and h is the height of the cylinder.
+class Cylinder {
+    constructor(height, radius) {
+        this.height = height;
+        this.radius = radius;
+    }
+    calcVolume() {
+        let volume = Number((Math.PI * this.radius * 2 * this.height).toFixed(4));
+        console.log(typeof volume);
+        return this.volume = volume; 
+    }
+}
+let myCylinder = new Cylinder(10, 3);
+console.log(typeof myCylinder.height)
+myCylinder.calcVolume();
+console.log(myCylinder);
 
 
 console.log("-----3-----");
