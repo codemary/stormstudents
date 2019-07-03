@@ -7,13 +7,13 @@ Create a function to reverse a number.
 Examples: 
 * reverse(34532) -> expected output: 23543 */
 
-function reverseNumber(num1) {
+function reverseNumber(num1_1) {
+    let num1 = num1_1;
     let num1ToArray = num1.toString().split("");
-    let num1ReverseString = num1ToArray.reverse().join("");
-    let num1Reverse = Number(num1ReverseString);
+    let num1Reverse = num1ToArray.reverse().join("");
     console.log(num1Reverse);
 }
-reverseNumber(123.456789);
+reverseNumber(123456789);
 
 console.log("----------");
 
@@ -41,7 +41,9 @@ Examples:
 * findGreatest([10, 20, 30], 12) -> expected output: 20, 30
 * findGreatest([0, 10, 3], 4) -> expected output: 10 */
 
-function biggerNumbers(numArray, num1) {
+function biggerNumbers(numArray_1, num1_1) {
+    let num1 = num1_1;
+    let numArray = numArray_1;
     let arrayBigger = [];
     for (let i = 0; i < numArray.length; i++) {
         if (numArray[i] > num1) {
@@ -50,7 +52,7 @@ function biggerNumbers(numArray, num1) {
     }
     console.log(arrayBigger);
 }
-biggerNumbers([3, 4, 5, 6], 4);
+biggerNumbers([10, 20, 30], 12);
 
 console.log("----------");
 
@@ -59,7 +61,8 @@ Create a function which calculates how old a dog is in doggie years. The functio
 Example
 * dogAge(4) -> expected output example: "Your doggo is 28 years old in human years!" */
 
-function dogYears(dogAge) {
+function dogYears(dogAge_1) {
+    let dogAge = dogAge_1;
     let doggyYears = dogAge * 7;
     console.log(`Your doggo is ${doggyYears} years old in human years!`);
 }
@@ -92,7 +95,8 @@ Create a function to find the longest word in string.
 Examples: 
 * longestWord("this is a web development course") ->  expected output: "development" */
 
-function searchLongest(myString) {
+function searchLongest(myString_1) {
+    let myString = myString_1;
     let myArray = myString.split(" ");
     let longestWord = "";
     for(let i = 0; i < myArray.length; i++) {
@@ -102,7 +106,7 @@ function searchLongest(myString) {
     }
     console.log(longestWord);
 }
-searchLongest("I love foxes");
+searchLongest("oiasjfiasuhg I love foxes");
 
 console.log("----------");
 /* #### 7. AEIOU: Vowels
@@ -111,7 +115,8 @@ Examples:
 * findVowels("this is a string") -> expected output: 4 vowels found
 * Notes: vowels are "a, e, i, o u".  */
 
-function findVowels(myString) {
+function findVowels(myString_1) {
+    let myString = myString_1;
     let vowels = ["a", "e", "i", "o", "u"];
     let vowelsFound = [];
     let myArray = myString.toLowerCase().split("");
@@ -134,7 +139,8 @@ Examples:
 * detectType("hello") -> expected output: type of argument is a string. 
 * detectType(4) -> expected output: type of argument is a number.  */
 
-function findType(unknown) {
+function findType(unknown_1) {
+    let unknown = unknown_1;
     console.log(`Type of argument is a ${typeof unknown}.`);
 }
 findType(NaN);
@@ -146,7 +152,9 @@ Create a function that accepts two arguments: a string and a letter. The functio
 Examples: 
 * countOccurrences("this is a string", "i") -> expected output: occurrences of i: 3  */
 
-function findOccurrence(myString, myLetter) {
+function findOccurrence(myString_1, myLetter_1) {
+    let myString = myString_1;
+    let myLetter = myLetter_1;
     let myArray = myString.toLowerCase().split("");
     let lettersFound = [];
     for (let i = 0; i < myArray.length; i++) {
@@ -166,50 +174,23 @@ Create a function that counts the number of occurrences of each letter in a stri
 Examples: 
 * countLetters("tree") -> expected output: t: 1, r: 1, e: 2 */
 
-function countingLetters(myString) {
-    let countedLetters = {};
-
-    for (let i = 0; i < myString.length; i++) {
-        let character = myString[i].toUpperCase();
-
-        if (countedLetters.hasOwnProperty(character) === true) {
-            countedLetters[character]++;
-        }  
-        else {countedLetters[character] = 1;
-        }
+function countingLetters(myString_1) {
+    let myString = myString_1;
+    let myArray = myString.toLowerCase().split("");
+    let myLettersArray = [myArray[0]];
+    let myCountArray = [1];
+    for (let i = 0; i < myArray.length; i++) {
+            let character = myArray[i]
+            let count = 0
+            if (myLettersArray.includes(character) === false) {
+                myLettersArray.push(character);
+                count = 1;
+            } else if (myLettersArray.includes(character) === true) {
+                
+            } 
     }
-    console.log(countedLetters);
+    console.log(myLettersArray);
+    console.log(myCountArray);
 }
-countingLetters("I Love Foxes!");
-
-//--------------------
-
-function countingLettersAlt(myString_1) {
-
-    let myString = myString_1.toLowerCase();
-
-    let allTogether = {};
-
-    for (let i = 0; i < myString.length; i++) {
-        let character = myString[i];
-
-        if (allTogether.hasOwnProperty('character') === false) {
-            let count = 0;
-
-            for (j = 0; j < myString.length; j++) {
-
-                if (character === myString[j]) { 
-                    count++
-                }
-            }
-
-            allTogether[character.toUpperCase()] = count;
-        }
-    }
-    console.log(allTogether);
-}
-
-countingLettersAlt("I love foxes")
-
-console.log("-----------")
+countingLetters("Hello");
 
