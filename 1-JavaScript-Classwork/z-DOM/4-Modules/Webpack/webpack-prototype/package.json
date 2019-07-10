@@ -6,15 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start:dev":
-      "webpack-dev-server --mode development --content-base dist/ --open --hot"
+    "start:dev": "webpack-dev-server --mode development --content-base dist/ --open --hot --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.13"
   }
 }
