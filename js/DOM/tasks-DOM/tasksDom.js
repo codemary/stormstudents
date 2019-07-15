@@ -61,13 +61,13 @@ console.log("-----About Me-----")
 //       <title>About Me</title>
 //     </head>
 //     <body>
-//       <h1>About Me</h1>
+//   <h1>About Me</h1>
 
-//       <ul>
-//         <li>Nickname: <span id="nickname"></span>
-//         <li>Favorites:  <span id="favorites"></span>
-//         <li>Hometown: <span id="hometown"></span>
-//       </ul>
+//   <ul>
+//     <li>Nickname: <span id="nickname"></span>
+//     <li>Favorites:  <span id="favorites"></span>
+//     <li>Hometown: <span id="hometown"></span>
+//     </ul>
 //     </body>
 //   </html>
 // ```
@@ -78,3 +78,30 @@ console.log("-----About Me-----")
 // * Add a style tag that sets a rule for .list-item to make the color red.
 // * Create a new img element and set its src attribute to a picture of you. Append that element to the page.
 
+const body = document.querySelector('body');
+// body.setAttribute('style', 'font-family: sans-serif');
+body.style.fontFamily = 'sans-serif'
+
+const myInfoArray = {
+    nickname: 'House-Dragon',
+    favorites: 'Foxes',
+    hometown: 'Berlin'
+}
+console.log(Object.values(myInfoArray)[1])
+
+const spanItems = document.querySelectorAll('#my-info > li > span');
+console.log(spanItems);
+spanItems.forEach((item, index) => { 
+    item.innerHTML = `${Object.values(myInfoArray)[index]}`;
+})
+
+const myInfoList = document.getElementById('my-info');
+const liItems = myInfoList.children;
+Array.from(liItems).forEach(item => {
+    item.classList.add('list-item');
+    item.style.color = 'red';
+})
+
+myInfoList.insertAdjacentHTML("afterend", '<img src="assets/fox.jpeg">');
+// const img = document.createElement('img');
+// img.setAttribute("src", 'assets/fox.jpeg');
