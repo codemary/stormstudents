@@ -48,4 +48,15 @@ function backgroundChange() {
 
 btn2.onclick = backgroundChange;
 
+const items = document.querySelectorAll('li');
+
+items.forEach(item => {
+    item.addEventListener('click', event => {
+        // console.log(event);
+        // console.log(event.target)
+        event.target.style.textDecoration = 'line-through';
+        
+    })
+})
+
 
