@@ -11,7 +11,7 @@ body {
 .wrapper-box {
     width: 100vw;
     height: 100vh;
-    background: rgb(139, 231, 232);
+    background: #879EFF;
     text-align: center;
     font-size: 4rem;
     display: flex;
@@ -23,12 +23,12 @@ body {
 .wrapper-box > h1 {
     color: white;
     text-shadow: black 2px 2px 2px;
-    padding-bottom: 2rem;
+    padding-bottom: 10vh;
 }
 
 .city-input {
-    height: 12rem;
-    width: 20rem;
+    height: 20vh;
+    width: 30vw;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -37,11 +37,17 @@ body {
 }
 
 .city-input > * {
-    height: 4rem;
+    height: 9vh;
+    padding: 0 2vw;
     width: 100%;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 2% 2%;
     box-shadow: black 2px 2px 2px;
+}
+
+#submit-button {
+    background: darkblue;
+    color: white;
 }
 
 .popup {
@@ -50,18 +56,17 @@ body {
     height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.5);
-    /* background-color: rgba(0,10,204,0.7); */
-    /* display: none; */
+    display: none;
 }
 
 .search-result {
-    height: 70%;
-    width: 70%;
-    margin: 10% auto;
+    height: 80%;
+    margin: 5% 5%;
     position: relative;
     text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: rgb(139, 231, 232);
-    border: dotted black 2px;
+    border-radius: 10px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -69,32 +74,77 @@ body {
 }
 
 #close-result {
+    border: solid grey 1px;
+    background-color: white;
+    height: 4vh;
+    width: 4vh;
+    padding: auto;
+    border-radius: 30%;
     position: absolute;
-    font-size: 2rem;
-    top: 0;
-    right: 0.8rem;
+    top: 3px;
+    right: 3px;
+}
+
+#close-result > p {
+    font-weight: bold;
+    margin-top: 0.5vh;
 }
 
 .search-result > h1 {
-    margin-top: 2rem;
+    margin-top: 2vh;
     font-size: 3rem;
+    text-shadow: grey 2px 2px 2px;
 }
 
-.search-result > p {
-    height: 20rem;
-    width: 20rem;
-    border: solid black 1px;
+#weather-today {
+    border: outset darkblue;
+    height: 28vh;
+    width: 28vw;
+    color: rgb(50,50,50);
     background-color: white;
     box-shadow: grey 10px 10px 10px;
+    border-radius: 5px;
+    margin: 0 2vw 5vh 2vw;
+    padding: 0.7rem 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
 }
 
-.search-result > p:last-child {
-    margin-bottom: 2rem;
-
+#weather-forecast > * {
+    height: 25vh;
+    width: 25vw;
+    color: rgb(50,50,50);
+    background-color: white;
+    box-shadow: grey 10px 10px 10px;
+    border-radius: 5px;
+    margin: 0 2vw;
+    padding: 0.7rem 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
 }
 
-@media only screen and (min-width: 425px) {
-    .search-result {
-        background-color: hotpink;
-    }
+/* .search-result > h2 {
+    width: 90%;
+    text-align: left;
+} */
+
+h3 {
+    color: black;
 }
+
+.data-paragraph {
+    width: 100%;
+    text-align: left;
+    padding-left: 2vw;
+}
+
+#weather-forecast {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5vh;
+}
+
+
+
