@@ -65,7 +65,7 @@ body {
     position: relative;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: rgb(139, 231, 232);
+    background-image: linear-gradient(to right, rgb(139, 231, 232), white, rgb(139, 231, 232));
     border-radius: 10px;
     display: flex;
     flex-flow: column nowrap;

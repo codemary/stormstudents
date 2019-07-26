@@ -6,7 +6,7 @@ const popUp = document.querySelector('.popup');
 const closeResult = document.querySelector('#close-result');
 const cityName = document.querySelector('#city-name-result');
 const weatherData = document.querySelectorAll('.weather-data');
-const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 //date stuff
 const myDate = new Date();
@@ -64,7 +64,24 @@ submitForm.addEventListener('submit', (event) => {
             //wind speed
             element.children[4].textContent = 'WIND-SPEED: ' + Math.round(data.list[index].wind.speed * 3.6) + 'km/h';
         })
-        
+
+        // for (let i = 0; i < weatherData.length; i++) {
+        //     //day of the week, and date
+        //     weatherData[i].children[0].textContent = `${dayNames[dayIndex + i]}, ${getDate + i}.${getMonth}.${getYear}`;
+        //     console.log([dayIndex + i])
+
+        //     //weather description 
+        //     weatherData[i].children[1].textContent = 'WEATHER: ' + data.list[i].weather[0].description;
+
+        //     //temperature
+        //     weatherData[i].children[2].textContent = 'TEMPERATURE: ' + (data.list[i].main.temp - 273.15).toFixed(2) + '°C';
+
+        //     //humidity
+        //     weatherData[i].children[3].textContent = 'HUMIDITY: ' + data.list[i].main.humidity + '%';
+
+        //     //wind speed
+        //     weatherData[i].children[4].textContent = 'WIND-SPEED: ' + Math.round(data.list[i].wind.speed * 3.6) + 'km/h';
+        // }        
     })
     .catch(e => console.log("There is an Error", e))
 })
