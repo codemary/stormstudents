@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="wrapper-box">
+    <h1 class="title">Weather of your city today</h1>
+    <form class="city-input">
+      <input type="text" id="your-city" placeholder="Your city">
+      <input type="submit" value="submit" id="submit-button">
+    </form>
+  </div>
+
+  <div class="popup">
+    <div class="search-result">
+      <div id="close-result"><p>x</p></div>
+      <h1 id="city-name-result"></h1>
+      <div id="weather-today" class="weather-data">
+        <h3><img src=""> Weather today</h3>
+        <p id="main-weather" class="data-paragraph"></p>
+        <p id="temperature" class="data-paragraph"></p>
+        <p id="humidity" class="data-paragraph"></p>
+        <p id="wind-speed" class="data-paragraph"></p>
+      </div>
+      <h2>Weather forecast</h2>
+      <div id="weather-forecast">
+        <div id="weather-1" class="weather-data">
+          <h3><img src=""> Weather tomorrow</h3>
+          <p id="main-weather" class="data-paragraph"></p>
+          <p id="temperature" class="data-paragraph"></p>
+          <p id="humidity" class="data-paragraph"></p>
+          <p id="wind-speed" class="data-paragraph"></p>
+        </div>
+        <div id="weather-2" class="weather-data">
+          <h3><img src=""> Weather in two days</h3>
+          <p id="main-weather" class="data-paragraph"></p>
+          <p id="temperature" class="data-paragraph"></p>
+          <p id="humidity" class="data-paragraph"></p>
+          <p id="wind-speed" class="data-paragraph"></p>
+        </div>
+        <div id="weather-3" class="weather-data">
+          <h3><img src=""> Weather in three days</h3>
+          <p id="main-weather" class="data-paragraph"></p>
+          <p id="temperature" class="data-paragraph"></p>
+          <p id="humidity" class="data-paragraph"></p>
+          <p id="wind-speed" class="data-paragraph"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

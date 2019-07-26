@@ -103,5 +103,3 @@ Array.from(liItems).forEach(item => {
 })
 
 myInfoList.insertAdjacentHTML("afterend", '<img src="assets/fox.jpeg">');
-// const img = document.createElement('img');
-// img.setAttribute("src", 'assets/fox.jpeg');
