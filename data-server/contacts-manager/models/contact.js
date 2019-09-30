@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const UserSchema = require('./user');
+const contactSchema = require('./contact');
 const AddressSchema = require('./address');
 
 const ContactSchema = new Schema({
-    username: {
+    contactname: {
         type: String,
         required: true,
         unique: true
     },
-    user: UserSchema,
+    contact: contactSchema,
     address: AddressSchema,
     
     phone_numbers: [String],
