@@ -81,14 +81,14 @@ db.once('open', function() {
         break;
     case deleteCmd: 
         if(!inputArgs.username) {
-            usage;
+            usage();
         }
         console.log("Deleting contact...");
         deleteContact(inputArgs.username);
         break;
     case updateCmd: 
         if(!inputArgs.username) {
-            usage;
+            usage();
         }
         if(!inputArgs.phone && !inputArgs.email && !inputArgs.birthdate) {
             usage(); 
@@ -120,11 +120,9 @@ function seed() {
                 country: faker.address.country(),
                 post_code: faker.address.zipCode()
             },
-            contact: {
-                phone_numbers: [faker.phone.phoneNumber()],
-                emails: [faker.internet.email()],
-                birth_date: faker.date.past()
-            }
+            phone_numbers: [faker.phone.phoneNumber()],
+            emails: [faker.internet.email()],
+            birth_date: faker.date.past()
         }
         rawContacts.push(rawContact);
     }
@@ -134,8 +132,6 @@ function seed() {
             console.log(err);
             process.exit(1);
         }
-        // console.log(`${docs.length} docs inserted!`);
-        // console.log(docs[0].fullAddress);
         process.exit(0);
     })
 }
@@ -182,6 +178,7 @@ function deleteContact(username) {
         console.log(docs);
         process.exit(0);
     });
+    console.log(username);
 }
 
 function updateContact(args) {
@@ -215,11 +212,11 @@ function updateContact(args) {
                 return;
             }
             
-            phones.forEach(phone => !contact.contact.phone_numbers.includes(phone) && contact.contact.phone_numbers.push(phone));
-            emails.forEach(email => !contact.contact.emails.includes(email) && contact.contact.emails.push(email));
+            phones.forEach(phone => !contact.phone_numbers.includes(phone) && contact.phone_numbers.push(phone));
+            emails.forEach(email => !contact.emails.includes(email) && contact.emails.push(email));
 
             if(birthdate) {
-                contact.contact.birth_date = birthdate;
+                contact.birth_date = birthdate;
             }
 
             contact.save(function(err, docs) {

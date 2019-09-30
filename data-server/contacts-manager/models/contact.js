@@ -11,11 +11,10 @@ const ContactSchema = new Schema({
     },
     user: UserSchema,
     address: AddressSchema,
-    contact: {
-        phone_numbers: [String],
-        emails: [String],
-        birth_date: [String]
-    }
+    
+    phone_numbers: [String],
+    emails: [String],
+    birth_date: [String]
 })
 
 ContactSchema.virtual('fullAddress').get(function() {
