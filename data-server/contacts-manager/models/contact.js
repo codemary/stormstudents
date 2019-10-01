@@ -4,15 +4,25 @@ const contactSchema = require('./contact');
 const AddressSchema = require('./address');
 
 const ContactSchema = new Schema({
-    contactname: {
+    username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        minlength: 3,   // validate
+        maxlength: 20,  // validate
+        trim: true      // sanitize
     },
-    contact: contactSchema,
-    address: AddressSchema,
+    user: contactSchema,
+        
+    address:  AddressSchema,
     
-    phone_numbers: [String],
+    phone_numbers: [
+        {
+            type: String,
+            minlength: 6,
+            maxlength: 10
+        }
+    ],
     emails: [String],
     birth_date: [String]
 })
