@@ -68,6 +68,6 @@ app.use('/contacts', contactsRouter);
 // //   next(createError(404));
 // // })
 
-// app.use(errorMiddleware.handler);
+app.use(errorMiddleware.handler);
 
 module.exports = app;
