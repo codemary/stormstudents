@@ -24,7 +24,7 @@ const ContactSchema = new Schema({
         }
     ],
     emails: [String],
-    birth_date: [String]
+    birth_date: Date
 })
 
 ContactSchema.virtual('fullAddress').get(function() {

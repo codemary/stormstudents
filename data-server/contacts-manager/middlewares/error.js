@@ -6,7 +6,7 @@ function handler(err, req, res, next) {
   
     // render the error page
     res.status(err.status || 500);  // if error.status is undefined, set status 5000
-    res.render('error');
+    res.send(err);
 };
 
 module.exports = {

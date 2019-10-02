@@ -1,4 +1,6 @@
 const Contact = require('../models/contact');
+const validator = require('validator');
+let createError = require('http-errors');
 
 // get
 function contacts(req, res) {
@@ -85,11 +87,35 @@ function deletecontact(req, res) {
 }
 
 // update 
-function putcontact(req, res) {
+function putcontact(req, res, next) {
     let updateContact = req.body;
-    if(!updateContact.username) {
-        res.status(400);
-        res.send("required missing fields: username!")
+
+    try {
+        if(!updateContact.username) {
+            throw createError(400, "Error: required missing fields: username!");
+        }
+    
+        if(updateContact.emails) {
+            updateContact.emails.forEach(
+                email => {
+                    if(!validator.isEmail(email)) {
+                        throw createError(400, `Error: Invalid email ${email}`);
+                    }
+                }
+            )
+        }
+    
+        if(updateContact.phone_numbers) {
+            updateContact.phone_numbers.forEach(
+                phone => {
+                    if(!validator.isMobilePhone(phone)) {
+                        throw createError(400, `Error: Invalid phone number ${phone}`);
+                    }
+                }
+            )
+        }
+    } catch(e) {
+        next(e);
         return;
     }
 
