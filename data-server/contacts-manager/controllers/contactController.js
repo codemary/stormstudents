@@ -1,4 +1,5 @@
 const Contact = require('../models/contact');
+const Address = require('../models/address');
 const validator = require('validator');
 let createError = require('http-errors');
 
@@ -17,7 +18,7 @@ function contacts(req, res) {
 // get by id
 function contact(req, res) {
     const username = req.params.id;
-    Contact.findOne({username: username}, function(err, result) {
+    Contact.findOne({username: username}).populate('addresses').exec(function(err, result) {
         if(err || !result) {
             res.status(404);
             res.send(err || `Resource ${username} not found!`);
@@ -60,6 +61,25 @@ function createcontact(req, res) {
                 msg = `error: username ${contact.username} already exists!`;
                 status = 409; // Conflict
             }
+            res.status(status);
+            res.send(msg);
+            return;
+        }
+
+        try {
+            contact.addresses.forEach(address => {
+                address.contact = docs._id; // link address to current contact
+                Address.create(address, function(err) {
+                    if (err) {
+                        throw err;
+                    }
+                })
+            })
+        } catch (err) {
+            console.log(err);
+            let msg = "Internal server error";
+            let status = 500;
+
             res.status(status);
             res.send(msg);
             return;
@@ -148,6 +168,26 @@ function putcontact(req, res, next) {
                 res.send(msg);
                 return;
             }
+
+            try {
+                updateContact.addresses.forEach(address => {
+                    address.contact = result._id; // link address to current contact
+                    Address.create(address, function (err) {
+                        if (err) {
+                            throw err;
+                        }
+                    })
+                })
+            } catch (err) {
+                console.log(err);
+                let msg = "Internal server error";
+                let status = 500;
+
+                res.status(status);
+                res.send(msg);
+                return;
+            }
+
             res.send(result);
         })
     })

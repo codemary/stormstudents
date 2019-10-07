@@ -7,7 +7,7 @@ const config = {
 config.env = env.NODE_ENV || 'development';
 
 const devConfig = {
-  db: 'mongodb://localhost/contacts-manager'
+  db: 'mongodb://localhost/contacts-manager-tofu'
 };
 
 const prodConfig = {

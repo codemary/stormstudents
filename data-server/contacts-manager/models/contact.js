@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const contactSchema = require('./contact');
-const AddressSchema = require('./address');
 
 const ContactSchema = new Schema({
     username: {
@@ -13,9 +12,6 @@ const ContactSchema = new Schema({
         trim: true      // sanitize
     },
     user: contactSchema,
-        
-    address:  AddressSchema,
-    
     phone_numbers: [
         {
             type: String,
@@ -25,10 +21,16 @@ const ContactSchema = new Schema({
     ],
     emails: [String],
     birth_date: Date
+}, { toJSON: { virtuals: true } })
+
+ContactSchema.virtual('addresses', {
+    ref: 'Address', 
+    localField: '_id', 
+    foreignField: 'contact', 
 })
 
-ContactSchema.virtual('fullAddress').get(function() {
-    return `${this.address.street.name}, ${this.address.city}, ${this.address.state}`
-})
+// ContactSchema.virtual('fullAddress').get(function() {
+//     return `${this.address.street.name}, ${this.address.city}, ${this.address.state}`
+// })
 
 module.exports = mongoose.model('Contact', ContactSchema);
