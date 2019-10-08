@@ -7,13 +7,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var contactsRouter = require('./routes/contacts');
-
+const usersRouter = require('./routes/users');
 const authMiddleware = require('./middlewares/auth');
 const errorMiddleware = require('./middlewares/error');
 
 const config = require('./config');
-console.log(config);
-
 const mongoose = require('mongoose');
 
 mongoose.connect(config.db, {
@@ -46,7 +44,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());  //  'Content-Type: application/json
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); // to serve static content images or stylesheets
 
 app.use('/', indexRouter);
@@ -54,7 +52,11 @@ app.use('/', indexRouter);
 // basicauth custom middleware
 //app.use('/contacts', authMiddleware.basicAuth);
 
+//basic auth custom middleware:
+app.use('/users', authMiddleware.basicAuth);
+
 app.use('/contacts', contactsRouter);
+app.use('/users', usersRouter);
 
 // // this controller will match all not found routes.
 // // catch 404 and forward to error handler

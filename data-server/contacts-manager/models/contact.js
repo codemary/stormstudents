@@ -1,17 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const contactSchema = require('./contact');
+const UserSchema = require('./user');
 
 const ContactSchema = new Schema({
-    username: {
+    name: {
         type: String,
-        required: true,
-        unique: true,
-        minlength: 3,   // validate
-        maxlength: 20,  // validate
-        trim: true      // sanitize
+        required: true
     },
-    user: contactSchema,
+
+    user: { type: UserSchema, required: true, default: {} },
+
     phone_numbers: [
         {
             type: String,
