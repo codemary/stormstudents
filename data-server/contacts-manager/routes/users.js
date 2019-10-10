@@ -13,7 +13,7 @@ router.get('/:id', userController.user);
 router.post('/', userController.createUser);
 
 // dalete
-router.delete('/:id', userController.deleteUser);
+router.delete('/', userController.deleteUser);
 
 // update
 router.put('/', userController.putUser);

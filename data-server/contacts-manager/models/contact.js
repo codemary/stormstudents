@@ -8,7 +8,11 @@ const ContactSchema = new Schema({
         required: true
     },
 
-    user: { type: UserSchema, required: true, default: {} },
+    user: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
 
     phone_numbers: [
         {

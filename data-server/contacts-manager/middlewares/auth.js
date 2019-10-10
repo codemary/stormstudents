@@ -6,7 +6,7 @@ const authErr = createError(401, 'Authentication Required!');
 // authentication middleware
 function basicAuth (req, res, next) {
     
-    if(req.method === "POST") {
+    if(req.method === "POST" && req.url === '/user') {
       return next();
     } 
 
@@ -27,6 +27,10 @@ function basicAuth (req, res, next) {
       }, function (err, user) {
         if (err) {
           console.log(err);
+          return next(authErr);
+        }
+
+        if (!user) {
           return next(authErr);
         }
 

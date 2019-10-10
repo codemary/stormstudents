@@ -5,23 +5,17 @@ let createError = require('http-errors');
 
 // get
 function contacts(req, res) {
-    Contact.find({}, function(err, contacts) {
-        if(err) {
-            res.status(400);
-            res.send(err);
-            return;
-        }
-        res.send(contacts);
-    });
+    Contact.find({}).populate("addresses").exec(function (err, contacts) {
+        res.send(contacts || []);
+    })
 }
 
 // get by id
-function contact(req, res) {
-    const username = req.params.id;
-    Contact.findOne({username: username}).populate('addresses').exec(function(err, result) {
+function contact(req, res, next) {
+    const id = req.params.id;
+    Contact.findOne({_id: id}).populate('addresses').exec(function(err, result) {
         if(err || !result) {
-            res.status(404);
-            res.send(err || `Resource ${username} not found!`);
+            next(createError(400, `Resource ${id} not found!`));
             return;
         }
         res.send(result);
@@ -29,77 +23,77 @@ function contact(req, res) {
 }
 
 // post 
-function createcontact(req, res) {
-    var contact = req.body;
-
-    if(!contact.username || !contact.password || !contact.name) {
-        res.status(400);
-        res.send("required missing fields: username, name, password!")
-        return;
-    }
-
-    if(contact.username.length < 3 || contact.username.length > 20) {
-        res.status(400);
-        res.send("username length must be between 3 and 20!")
-        return;
-    }
+function createcontact(req, res,next) {
+    let contact = req.body; // body is json object due to express.json() middleware
 
     let rawContact = {
-        username: contact.username.trim(),
-        user: {
-            name: contact.name.trim(),
-            password: contact.password.trim()
-        }
+        user: res.locals.user._id, // for the authenticated user
+        name: contact.name,
+        addresses: contact.addresses,
+        phone_numbers: contact.phone_numbers,
+        emails: contact.emails,
+        birth_date: contact.birth_date  
     }
-    
-    Contact.create(rawContact, function(err, docs) {
-        if(err) {
-            let msg = "Internal server error";
-            let status = 500;
 
-            if(err.errmsg && err.errmsg.includes("E11000 duplicate key error")) {
-                msg = `error: username ${contact.username} already exists!`;
-                status = 409; // Conflict
-            }
-            res.status(status);
-            res.send(msg);
+    if (!rawContact.name) {
+        next(createError(400, "missing required name!"))
+        return;
+    }
+
+    if (rawContact.name < 3) {
+        next(createError(400, "name should be atleast 3 characters"))
+        return;
+    }
+
+    if (rawContact.emails) {
+        rawContact.emails.forEach(
+            email => {
+                if (!validator.isEmail(email)) {
+                    throw createError(400, `Error: Invalid email ${email}`);
+                }
+            });
+    }
+
+    if (rawContact.phone_numbers) {
+        rawContact.phone_numbers.forEach(
+            phone => {
+                if (!validator.isMobilePhone(phone)) {
+                    throw createError(400, `Error: Invalid phone number ${phone}`);
+                }
+            });
+    }
+
+    Contact.create(rawContact, function (err, doc) {
+        if (err) {
+            next(createError(500, "unexpected error!"))
             return;
         }
 
         try {
-            contact.addresses.forEach(address => {
-                address.contact = docs._id; // link address to current contact
-                Address.create(address, function(err) {
+            contact.addresses && contact.addresses.forEach(address => {
+                address.contact = doc._id; // link address to current contact
+                Address.create(address, function (err) {
                     if (err) {
-                        throw err;
+                        throw err
                     }
                 })
             })
         } catch (err) {
-            console.log(err);
-            let msg = "Internal server error";
-            let status = 500;
-
-            res.status(status);
-            res.send(msg);
+            next(createError(500, "unexpected error!"))
             return;
         }
-        res.send(docs);
-    }) 
-};
+
+        res.send(doc);
+    });
+}
 
 // delete
 function deletecontact(req, res) {
-    const username = req.params.id;
-    if(username.length < 3 || username.length > 20) {
-        res.status(400);
-        res.send("username length must be between 3 and 20!")
-        return;
-    }
-    Contact.deleteOne({username: username}, function(err, result) {
+    const id = req.params.id;
+
+    Contact.deleteOne({_id: id}, function(err, result) {
         if(err) {
-            res.status(404);
-            res.send(err || `Resource ${username} not found!`);
+            next(createError(400, `Resource ${id} not found!`));
             return;
         }
         res.send(result);
@@ -108,12 +102,10 @@ function deletecontact(req, res) {
 
 // update 
 function putcontact(req, res, next) {
+    const id = req.params.id;
     let updateContact = req.body;
 
     try {
-        if(!updateContact.username) {
-            throw createError(400, "Error: required missing fields: username!");
-        }
     
         if(updateContact.emails) {
             updateContact.emails.forEach(
@@ -135,16 +127,19 @@ function putcontact(req, res, next) {
             )
         }
     } catch(e) {
-        next(e);
+        next(createError(500, "unexpected error!"));
         return;
     }
 
-    Contact.findOne({username: updateContact.username}, function(err, contact) {
+    Contact.findOne({_id: id}, function(err, contact) {
         if(err || !contact) {
-            res.status(404);
-            res.send(err || `resource ${updateContact.username} not found!`)
+            next(createError(500, `Unexpected Error: finding user!`));
             return;
-        } 
+        }
+        
+        if(updateContact.name) {
+            contact.name = updateContact.name;
+        }
 
         if(updateContact.phone_numbers) {
             updateContact.phone_numbers.forEach(
@@ -161,30 +156,23 @@ function putcontact(req, res, next) {
 
         contact.save(function(err, result) {
             if(err) {
-                let msg = "Internal server error";
-                let status = 500;
-
-                res.status(status);
-                res.send(msg);
+                next(createError(500, `Unexpected Error: saving user!`));
                 return;
             }
 
             try {
-                updateContact.addresses.forEach(address => {
+                updateContact.addresses && updateContact.addresses.forEach(address => {
                     address.contact = result._id; // link address to current contact
                     Address.create(address, function (err) {
                         if (err) {
+                            console.log(err);
+                            
                             throw err;
                         }
                     })
                 })
             } catch (err) {
-                console.log(err);
-                let msg = "Internal server error";
-                let status = 500;
-
-                res.status(status);
-                res.send(msg);
+                next(createError(500, `Unexpected Error: saving address!`));
                 return;
             }
 

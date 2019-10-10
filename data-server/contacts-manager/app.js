@@ -49,26 +49,12 @@ app.use(express.static(path.join(__dirname, 'public'))); // to serve static cont
 
 app.use('/', indexRouter);
 
-// basicauth custom middleware
-//app.use('/contacts', authMiddleware.basicAuth);
-
 //basic auth custom middleware:
 app.use('/users', authMiddleware.basicAuth);
+app.use('/contacts', authMiddleware.basicAuth);
 
 app.use('/contacts', contactsRouter);
 app.use('/users', usersRouter);
-
-// // this controller will match all not found routes.
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   // next(createError(404, new Error('This is not the droid you are looking for!')));
-//   var err = new createError.NotFound("You shall not pass!!");
-//   next(err);
-// });
-
-// // app.get('*', function(req, res, next) {
-// //   next(createError(404));
-// // })
 
 app.use(errorMiddleware.handler);
 

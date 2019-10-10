@@ -5,13 +5,15 @@ function users(req, res) {
     
 }
 
-function user(req, res) {
+function user(req, res) {    
     res.send(res.locals.user);
 }
 
 function createUser(req, res, next) {
 
     let user = req.body;
+    console.log(res.locals);
+    
 
     if (!user.username || !user.password || !user.name) {
         next( createError(400, "required missing fields: username, name, password!") );
@@ -52,15 +54,46 @@ function createUser(req, res, next) {
 
     } catch (e) {
         console.log(e);
-        next( createError(500, "Unexpected error!"));
+        next(createError(500, "Unexpected error!"));
     }
 }
 
 function deleteUser(req, res) {
 
+    try {
+        User.deleteOne({
+            username: res.locals.user.username
+        }, function (err, user) {
+            if (err) {
+                next(createError(500, "error deleting user!"))
+            }
+            res.send(user);
+        }) 
+    } catch (err) {
+        next(createError(500, err));
+    }
 }
 
 function putUser(req, res, next) {
+
+    if (!req.body.name) {
+        res.send(res.locals.user)
+        return;
+    }
+
+    if (req.body.name < 3) {
+        next(createError(400, "name length must be atleast 3 characters!"))
+    }
+
+    User.updateOne({ username: res.locals.user.username }, { name: req.body.name }, function (err, user) {
+        if (err) {
+            next(createError(500, "Unexpected error!"))
+        }
+        res.send({
+            name: req.body.name,
+            username: res.locals.user.username
+        })
+    })
 
 }
 
