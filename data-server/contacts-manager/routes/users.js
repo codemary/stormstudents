@@ -5,12 +5,15 @@ const userController = require('../controllers/userController');
 
 /* GET contacts listing. */
 
-router.get('/', userController.users)
+// router.get('/', userController.users)
 
-router.get('/:id', userController.user);
+router.get('/', userController.user);
 
 // post
-router.post('/', userController.createUser);
+// router.post('/', userController.createUser);
+
+// router.post('/signup', userController.signupUser);
+// router.post('/login', userController.loginUser);
 
 // dalete
 router.delete('/', userController.deleteUser);

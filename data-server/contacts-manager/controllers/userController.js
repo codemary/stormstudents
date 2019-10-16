@@ -1,15 +1,50 @@
 const { User } = require('../models/user');
 let createError = require('http-errors');
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 
-function users(req, res) {
-    
-}
+const authErr = createError(401, "Authentication Required!");
 
 function user(req, res) {    
-    res.send(res.locals.user);
+    res.send(req.user);
 }
 
-function createUser(req, res, next) {
+function loginUser (req, res, next) {
+    const username = req.body.username;
+    const password = req.body.password;
+    if(!username || !password) {
+        next(authErr);
+    }
+    try {
+        User.findOne({
+            username: username
+        }, function(err, user) {
+            if(err) {
+                return next(authErr);
+            }
+
+            if(!user) {
+                return next(authErr);
+            }
+
+            if(user.password === password) {
+                let token = jwt.sign(
+                    {username: username},
+                    config.secret,
+                    {expiresIn: '24h'}
+                )
+                res.json({token: token});
+            } else {
+                return next(authErr);
+            }
+        })
+    } catch (err) {
+        console.log(err);
+        return next(authErr);
+    }
+}
+
+function signupUser(req, res, next) {
 
     let user = req.body;
     console.log(res.locals);
@@ -98,9 +133,9 @@ function putUser(req, res, next) {
 }
 
 module.exports = {
-    users: users,
     user: user,
-    createUser: createUser,
+    signupUser: signupUser,
+    loginUser: loginUser,
     deleteUser: deleteUser,
     putUser: putUser
 }
