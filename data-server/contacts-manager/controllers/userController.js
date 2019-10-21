@@ -29,7 +29,10 @@ function loginUser (req, res, next) {
 
             if(user.password === password) {
                 let token = jwt.sign(
-                    {username: username},
+                    {
+                        username: username,
+                        _id: user._id
+                    },
                     config.secret,
                     {expiresIn: '24h'}
                 )

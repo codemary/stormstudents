@@ -6,11 +6,13 @@ import {
   } from 'antd';
 
   import './Signup.css';
+  import { signup } from './api';
   
   class RegistrationForm extends Component {
     state = {
       confirmDirty: false,
       autoCompleteResult: [],
+      signupErr: null
     };
   
     handleSubmit = e => {
@@ -18,6 +20,13 @@ import {
       this.props.form.validateFieldsAndScroll((err, values) => {
         if (!err) {
           console.log('Received values of form: ', values);
+          const {name, username, password} = values;
+          signup(name, username, password).then((res) => {
+            console.log(res);
+            this.props.history.push("/login")
+          }).catch(err => {
+            this.setState({signupErr: err.message})
+          })
         }
       });
     };
@@ -74,18 +83,28 @@ import {
   
       return (
         <Form {...formItemLayout} onSubmit={this.handleSubmit} className="signup-form">
-          <Form.Item label="E-mail">
-            {getFieldDecorator('email', {
+          <Form.Item>
+            {this.state.signupErr}
+          </Form.Item>
+          <Form.Item label="Name">
+            {getFieldDecorator('name', {
               rules: [
                 {
-                  type: 'email',
-                  message: 'The input is not valid E-mail!',
-                },
-                {
                   required: true,
-                  message: 'Please input your E-mail!',
-                },
+                  message: 'Please input your name!',
+                }
               ],
+            })(<Input />)}
+          </Form.Item>
+          <Form.Item
+            label={
+              <span>
+                Username&nbsp;
+              </span>
+            }
+          >
+            {getFieldDecorator('username', {
+              rules: [{ required: true, message: 'Please input your username!' }],
             })(<Input />)}
           </Form.Item>
           <Form.Item label="Password" hasFeedback>
@@ -114,18 +133,7 @@ import {
               ],
             })(<Input.Password onBlur={this.handleConfirmBlur} />)}
           </Form.Item>
-          <Form.Item
-            label={
-              <span>
-                Name&nbsp;
-              </span>
-            }
-          >
-            {getFieldDecorator('nickname', {
-              rules: [{ required: true, message: 'Please input your name!', whitespace: true }],
-            })(<Input />)}
-          </Form.Item>
-        
+
           <Form.Item {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit">
               Register

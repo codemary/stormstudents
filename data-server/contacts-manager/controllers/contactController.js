@@ -5,9 +5,15 @@ let createError = require('http-errors');
 
 // get
 function contacts(req, res) {
-    Contact.find({}).populate("addresses").exec(function (err, contacts) {
-        res.send(contacts || []);
-    })
+    console.log("contacts function req::", req.headers);
+    try{
+        Contact.find({user: req.user._id}).populate("addresses").exec(function (err, contacts) {
+            res.send(contacts || []);
+        })
+    } catch(err) {
+        console.log(err);
+        next(createError(500, err));
+    } 
 }
 
 // get by id
@@ -27,7 +33,7 @@ function createcontact(req, res,next) {
     let contact = req.body; // body is json object due to express.json() middleware
 
     let rawContact = {
-        user: res.locals.user._id, // for the authenticated user
+        user: req.user._id, // for the authenticated user
         name: contact.name,
         addresses: contact.addresses,
         phone_numbers: contact.phone_numbers,
