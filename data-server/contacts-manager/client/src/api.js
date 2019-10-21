@@ -1,6 +1,51 @@
-function currentUser() {
-    return localStorage.getItem("cm-user")
+function currentUser(){
+    const cmUser = localStorage.getItem("cm-user")
+    if (!cmUser){
+      return null;
+    }
+     return JSON.parse(cmUser);
 }
+
+function createContact (data) {
+    let newContact = {
+        name: data.name,
+        addresses: [],
+        phone_numbers: [],
+        emails: []
+    }
+
+    if (data.email) {
+        newContact.emails.push(data.email);
+    }
+    
+    if (data.phone) {
+        newContact.phone_numbers.push(data.phone);
+    }
+    
+    if (data.city) {
+        newContact.addresses.push({city: data.city});
+    }
+
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(newContact),
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${currentUser().token}`
+        }
+    };
+
+    return fetch('http://localhost:3001/contacts', options)
+    .then(res => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            throw new Error("Create contact failed!")
+        }
+    })
+}
+
+
 
 function signup(name, username, password) {
     const body = {
@@ -62,7 +107,7 @@ function logout() {
 
 function fetchContacts() {
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: { 
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${currentUser().token}`
@@ -71,10 +116,27 @@ function fetchContacts() {
     return fetch('http://localhost:3001/contacts', options)
     .then(res => {
         if (res.ok) {
-            console.log("error:::::", res);
             return res.json();
         } else {
             throw new Error("Failed fetching contacts!")
+        }
+    })
+}
+
+function deleteContact(id) {
+    const options = {
+        method: 'DELETE',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${currentUser().token}`
+        }
+    };
+    return fetch(`http://localhost:3001/contacts/${id}`, options)
+    .then(res => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            throw new Error("Failed deleting contact!")
         }
     })
 }
@@ -84,5 +146,7 @@ module.exports = {
     signup: signup,
     login: login,
     logout: logout,
-    fetchContacts: fetchContacts
+    fetchContacts: fetchContacts,
+    createContact: createContact,
+    deleteContact: deleteContact
 }

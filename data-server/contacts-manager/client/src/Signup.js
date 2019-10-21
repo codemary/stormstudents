@@ -3,10 +3,10 @@ import {
     Form,
     Input,
     Button,
-  } from 'antd';
+} from 'antd';
 
-  import './Signup.css';
-  import { signup } from './api';
+import './Signup.css';
+import { signup } from './api';
   
   class RegistrationForm extends Component {
     state = {

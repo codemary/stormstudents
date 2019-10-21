@@ -5,7 +5,6 @@ let createError = require('http-errors');
 
 // get
 function contacts(req, res) {
-    console.log("contacts function req::", req.headers);
     try{
         Contact.find({user: req.user._id}).populate("addresses").exec(function (err, contacts) {
             res.send(contacts || []);
